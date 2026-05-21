@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE - Blog</title>
+
+    <link rel="stylesheet" href="css/Estilos.css">
+    <link rel="stylesheet" href="css/Blog.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+
+    <script src="https://kit.fontawesome.com/29c7957c70.js" crossorigin="anonymous"></script>
+
+    <style>
+        html,
+        body {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="#NoticiaDestacada" class="SkipLink">
+        <i class="fa-solid fa-forward" aria-hidden="true"></i>
+        <span data-i18n="Skip.BtnSkip"></span>
+    </a>
+
+    <!--====== HEADER Y MENÚ  ============-->
+    <header>
+        <nav class="BarraNav" aria-label="Navegación principal">
+
+            <a href="index.html" class="Logo" aria-label="Ir a la página de inicio">
+                <img src="img/Isologo.png" alt="">
+                <div class="TextoLogo">
+                    <strong data-i18n="Header.Titulo"></strong> &nbsp;
+                    <span data-i18n="Header.Subtitulo"></span>
+                </div>
+            </a>
+
+            <button class="BotonMenu" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="nav-links">
+                <i class="fa-solid fa-circle-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            <ul class="EnlacesNav" id="nav-links">
+
+                <li><a href="Index.html" data-i18n="Header.Nav.Index"></a></li>
+                <li><a href="Contacto.html" data-i18n="Header.Nav.Contacto"></a></li>
+
+                <li>
+                    <button id="BotonIdioma" class="BotonIcono" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-solid fa-language" aria-hidden="true"></i>
+                        <span data-i18n="Header.Idioma"></span>
+                    </button>
+                </li>
+
+                <li>
+                    <button id="abrirMapa" class="BotonIcono BotonMapa" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-regular fa-map" aria-hidden="true"></i>
+                        <span data-i18n="Header.Mapa"></span>
+                    </button>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MODAL IDIOMA -->
+    <div id="ModalIdioma" class="ModalIdioma" role="dialog" aria-modal="true">
+
+        <div class="ContenidoModal">
+
+            <button class="CerrarModal BotonGral" id="CerrarModal" data-i18n-aria-label="Modal.Cerrar">
+                &times;
+            </button>
+
+            <h3 data-i18n="Modal.Titulo"></h3>
+
+            <div class="FnIdioma">
+                <button class="OpcionIdioma BotonGral" data-lang="es">
+                    <img src="img/es.png" data-i18n-alt="Modal.Idiomas.Es">
+                </button>
+
+                <button class="OpcionIdioma BotonGral" data-lang="en">
+                    <img src="img/en.png" data-i18n-alt="Modal.Idiomas.En">
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--====== MAIN ============-->
+    <main>
+
+        <!-- BOTÓN ACCESIBILIDAD -->
+        <button id="btnAccesibilidad" class="BotonAccessibilidad" data-i18n-title="Accesibilidad.Titulo"
+            data-i18n-aria-label="Accesibilidad.Titulo">
+
+            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+        </button>
+
+        <div id="menuAccesibilidad" class="PanelMenuAccesibilidad">
+
+            <div class="MenuAccesEncabezado">
+                <span data-i18n="Acces.Titulo"></span>
+                <button id="cerrarAcc" data-i18n-aria-label="Acces.Cerrar">&times;</button>
+            </div>
+
+            <div class="MenuAccesCuerpo">
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Tamano"></small>
+
+                    <div class="MenuAccesFilaBotones">
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(0.1)">
+                            <i class="fa-solid fa-plus"></i>
+                            <span data-i18n="Acces.Botones.Aumentar"></span>
+                        </button>
+
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(-0.1)">
+                            <i class="fa-solid fa-minus"></i>
+                            <span data-i18n="Acces.Botones.Reducir"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Visual"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('modo-contraste')">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <span data-i18n="Acces.Botones.Contraste"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('resaltar-enlaces')">
+                        <i class="fa-solid fa-link"></i>
+                        <span data-i18n="Acces.Botones.Enlaces"></span>
+                    </button>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Lectura"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('fuente-legible')">
+                        <i class="fa-solid fa-font"></i>
+                        <span data-i18n="Acces.Botones.Fuente"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('cursor-grande')">
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                        <span data-i18n="Acces.Botones.Cursor"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('sin-animaciones')">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <span data-i18n="Acces.Botones.Animaciones"></span>
+                    </button>
+                </div>
+
+                <hr>
+
+                <button class="MenuAccesOpcion BotonReiniciar" onclick="restablecerTodo()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span data-i18n="Acces.Botones.Reset"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!--====== BOTÓN IR ARRIBA ======-->
+        <button id="BotonArriba" class="BotonArriba fa-solid fa-circle-arrow-up" aria-label="Volver arriba"></button>
+
+        <!--====== TÍTULO =======-->
+        <section class="ScContenedor" style="margin-top: 70px; padding-bottom: 0px;" aria-labelledby="titulo-blog">
+            <div class="Contenedor" style="text-align: center;">
+
+                <div class="Titulo">
+                    <h2 id="titulo-blog" data-i18n="Blog.Titulo"></h2>
+
+                    <h3 style="margin-top:0; font-size:30px;" data-i18n="Blog.Subtitulo"></h3>
+                </div>
+
+            </div>
+        </section>
+
+        <!--===== BANNER 1 ======-->
+        <section class="Banner1" aria-hidden="true"></section>
+
+        <!--====== NOTICIAS  ======-->
+        <section id="NoticiaDestacada" class="ScContenedor" aria-labelledby="titulo-hoy">
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h1 id="titulo-hoy" data-i18n="Blog.Hoy.Titulo">
+                        </h12>
+                </div>
+
+                <div style="padding: 1% 0px 0px 0px;">
+                    <div class="FilaContacto">
+
+                        <!-- NOTICIA PRINCIPAL -->
+                        <div class="ColContacto w75c">
+                            <div class="NoticiaPrincipal">
+
+                                <div class="ImagenPrincipal">
+                                    <img src="img/Primavera.jpg" data-i18n-alt="Blog.Hoy.Alt">
+                                </div>
+
+                                <div class="ContenidoPrincipal" style="margin-bottom: 20px;">
+                                    <h2 data-i18n="Blog.Hoy.TituloCard"></h2>
+
+                                    <p data-i18n="Blog.Hoy.Desc"></p>
+
+                                    <button type="button" class="BotonPrincipal" onclick="abrirModalNoticia(event)"
+                                        aria-haspopup="dialog" data-i18n="Blog.Hoy.Boton">
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- RELACIONADOS -->
+                        <div class="ColContacto w25c">
+                            <aside data-i18n-aria-label="Blog.Relacionados.Aria">
+
+                                <div class="Relacionado">
+
+                                    <h3 class="TituloRelacionado" data-i18n="Blog.Relacionados.Titulo"></h3>
+
+                                    <!-- ITEM 1 -->
+                                    <div class="TarjetaRelacionado">
+                                        <img src="img/InviernoZermatt.jpg" data-i18n-alt="Blog.Relacionados.R1.Alt">
+
+                                        <div class="InfoRelacionado">
+                                            <h4 data-i18n="Blog.Relacionados.R1.Titulo"></h4>
+                                            <p data-i18n="Blog.Relacionados.R1.Desc"></p>
+                                            <a href="#" data-i18n="Blog.Relacionados.Boton"></a>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ITEM 2 -->
+                                    <div class="TarjetaRelacionado">
+                                        <img src="img/LagoLucerna2.jpg" data-i18n-alt="Blog.Relacionados.R2.Alt">
+
+                                        <div class="InfoRelacionado">
+                                            <h4 data-i18n="Blog.Relacionados.R2.Titulo"></h4>
+                                            <p data-i18n="Blog.Relacionados.R2.Desc"></p>
+                                            <a href="#" data-i18n="Blog.Relacionados.Boton"></a>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ITEM 3 -->
+                                    <div class="TarjetaRelacionado">
+                                        <img src="img/SpasAlpinos.jpg" data-i18n-alt="Blog.Relacionados.R3.Alt">
+
+                                        <div class="InfoRelacionado">
+                                            <h4 data-i18n="Blog.Relacionados.R3.Titulo"></h4>
+                                            <p data-i18n="Blog.Relacionados.R3.Desc"></p>
+                                            <a href="#" data-i18n="Blog.Relacionados.Boton"></a>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- ITEM 4 -->
+                                    <div class="TarjetaRelacionado">
+                                        <img src="img/Glacier.jpg" data-i18n-alt="Blog.Relacionados.R4.Alt">
+
+                                        <div class="InfoRelacionado">
+                                            <h4 data-i18n="Blog.Relacionados.R4.Titulo"></h4>
+                                            <p data-i18n="Blog.Relacionados.R4.Desc"></p>
+                                            <a href="#" data-i18n="Blog.Relacionados.Boton"></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </aside>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- MODAL -->
+                <div id="ModalNoticia" class="ModalNoticiaExp" role="dialog" aria-modal="true"
+                    aria-labelledby="modal-noticia-titulo">
+
+                    <div class="ModalContenido" style="text-align: center;">
+
+                        <button class="CerrarModal BotonPrincipal" onclick="cerrarModalNoticia()"
+                            data-i18n-aria-label="Blog.Modal.Cerrar">
+                            &times;
+                        </button>
+
+                        <img src="img/Primavera.jpg" data-i18n-alt="Blog.Hoy.Alt"
+                            style="height: 400px; border-radius: 25px;">
+
+                        <h2 id="modal-noticia-titulo" data-i18n="Blog.Modal.Titulo"></h2>
+
+                        <p data-i18n="Blog.Modal.Parrafo1"></p>
+                        <p data-i18n="Blog.Modal.Parrafo2"></p>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!--====== OTRAS NOTICIAS  ======-->
+        <section id="NoticiasRecientes" class="ScContenedor" style="background-color: #f4f4f4;"
+            aria-labelledby="titulo-recientes">
+
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h2 id="titulo-recientes" data-i18n="Blog.Recientes.Titulo"></h2>
+                </div>
+
+                <div class="ContenidoTab Activo">
+                    <div class="GridActividades">
+
+                        <!-- N1 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/AlpesSuizos.jpg" data-i18n-alt="Blog.Recientes.N1.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N1.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N1.Desc"></p>
+
+                                <a href="https://www.myswitzerland.com/es/destinos/naturaleza/" target="_blank"
+                                    rel="noopener noreferrer" class="BotonPrincipal" data-i18n="Blog.Recientes.Boton"
+                                    data-i18n-aria-label="Blog.Recientes.N1.Aria"></a>
+                            </div>
+                        </article>
+
+                        <!-- N2 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/Zermatt.jpg" data-i18n-alt="Blog.Recientes.N2.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N2.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N2.Desc"></p>
+
+                                <a href="https://www.myswitzerland.com/es/destinos/zermatt/" target="_blank"
+                                    rel="noopener noreferrer" class="BotonPrincipal" data-i18n="Blog.Recientes.Boton"
+                                    data-i18n-aria-label="Blog.Recientes.N2.Aria"></a>
+                            </div>
+                        </article>
+
+                        <!-- N3 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/Glacier.jpg" data-i18n-alt="Blog.Recientes.N3.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N3.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N3.Desc"></p>
+
+                                <a href="https://glacierexpress.ch/en" target="_blank" rel="noopener noreferrer"
+                                    class="BotonPrincipal" data-i18n="Blog.Recientes.Boton"
+                                    data-i18n-aria-label="Blog.Recientes.N3.Aria"></a>
+                            </div>
+                        </article>
+
+                        <!-- N4 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/LagoLucerna2.jpg" data-i18n-alt="Blog.Recientes.N4.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N4.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N4.Desc"></p>
+
+                                <a href="https://www.interhome.es/travelguide/suiza/los-lagos-mas-bonitos-de-suiza/"
+                                    target="_blank" rel="noopener noreferrer" class="BotonPrincipal"
+                                    data-i18n="Blog.Recientes.Boton" data-i18n-aria-label="Blog.Recientes.N4.Aria"></a>
+                            </div>
+                        </article>
+
+                        <!-- N5 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/CiudadesMedievales.jpeg" data-i18n-alt="Blog.Recientes.N5.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N5.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N5.Desc"></p>
+
+                                <a href="https://www.myswitzerland.com/es/descubrir-suiza/ciudades-cultura/pueblos-antiguos-busqueda/"
+                                    target="_blank" rel="noopener noreferrer" class="BotonPrincipal"
+                                    data-i18n="Blog.Recientes.Boton" data-i18n-aria-label="Blog.Recientes.N5.Aria"></a>
+                            </div>
+                        </article>
+
+                        <!-- N6 -->
+                        <article class="TarjetaActividad">
+                            <img src="img/GastronomiaSuiza.jpg" data-i18n-alt="Blog.Recientes.N6.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Blog.Recientes.N6.Titulo"></h3>
+                                <p data-i18n="Blog.Recientes.N6.Desc"></p>
+
+                                <a href="https://www.myswitzerland.com/es/descubrir-suiza/ruta-del-chocolate/"
+                                    target="_blank" rel="noopener noreferrer" class="BotonPrincipal"
+                                    data-i18n="Blog.Recientes.Boton" data-i18n-aria-label="Blog.Recientes.N6.Aria"></a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer>
+        <div id="FooterSz" class="Footer">
+
+            <!-- LOGO -->
+            <div class="FooterCol FooterLogo">
+                <img src="img/LogoFooter.png" alt="Logo de Visit Suiza" data-i18n-alt="Footer.Logo">
+            </div>
+
+            <!-- NAVEGACIÓN -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Sitio.Titulo"></h3>
+
+                <a href="Index.html#LugaresReconocidos" data-i18n="Footer.Sitio.Lugares"></a>
+                <a href="Index.html#ActividadesPorRealizar" data-i18n="Footer.Sitio.Actividades"></a>
+                <a href="Index.html#PlanificaViaje" data-i18n="Footer.Sitio.Planifica"></a>
+                <a href="Index.html#Eventos" data-i18n="Footer.Sitio.Eventos"></a>
+                <a href="Index.html#Mapa" data-i18n="Footer.Sitio.Mapa"></a>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Contacto.Titulo"></h3>
+
+                <a href="mailto:info@visitsuiza.com" data-i18n="Footer.Contacto.Email"
+                    data-i18n-aria-label="Footer.Contacto.EmailAria"></a>
+
+                <a href="tel:+41000000000" data-i18n="Footer.Contacto.Telefono"
+                    data-i18n-aria-label="Footer.Contacto.TelefonoAria"></a>
+
+                <p class="FooterHorario" data-i18n="Footer.Contacto.Horario"></p>
+
+                <div class="RedesFooter">
+
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- LEGAL -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Info.Titulo"></h3>
+
+                <!-- Evitamos enlaces rotos -->
+                <a href="#FooterSz" data-i18n="Footer.Info.Terminos"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Cookies"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Accesibilidad"></a>
+            </div>
+
+        </div>
+
+        <!-- COPY -->
+        <div class="FooterCopy" data-i18n="Footer.Copy"></div>
+    </footer>
+
+    <!-- POPUP MAPA -->
+    <div id="ModalMapa" class="ModalMapa" role="dialog" aria-modal="true" aria-label="Mapa interactivo de Suiza">
+        <div class="ModalContenido">
+
+            <button id="CerrarMapa" aria-label="Cerrar mapa">&times;</button>
+
+            <iframe id="MapaModal" title="Mapa de Suiza"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398238.9288952476!2d6.902303823682438!3d46.80557824825584!2m3!1f0!2f0!3f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2sSuiza!5e0!3m2!1ses!2sco!4v1772377173050!5m2!1ses!2sco"
+                width="100%" height="500" style="border:0; border-radius:20px;" allowfullscreen loading="lazy">
+            </iframe>
+
+        </div>
+    </div>
+
+    <script src="js/Global.js"></script>
+    <script src="js/Blog.js"></script>
+    <script src="js/PanelAccesibilidad.js"></script>
+    <script src="js/IrArriba.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/Traducciones.js"></script>
+
+</body>
+
+</html>

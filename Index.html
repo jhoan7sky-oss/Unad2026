@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suiza Explore</title>
+
+    <link rel="stylesheet" href="css/Estilos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+
+    <script src="https://kit.fontawesome.com/29c7957c70.js" crossorigin="anonymous"></script>
+
+    <style>
+        html,
+        body {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="#LugaresReconocidos" class="SkipLink">
+        <i class="fa-solid fa-forward" aria-hidden="true"></i>
+        <span data-i18n="Skip.BtnSkip"></span>
+    </a>
+
+    <!--====== HEADER Y MENÚ  ============-->
+    <header>
+        <nav class="BarraNav" aria-label="Navegación principal">
+
+            <a href="index.html" class="Logo" aria-label="Ir a la página de inicio">
+                <img src="img/Isologo.png" alt="">
+                <div class="TextoLogo">
+                    <strong data-i18n="Header.Titulo"></strong> &nbsp;
+                    <span data-i18n="Header.Subtitulo"></span>
+                </div>
+            </a>
+
+            <button class="BotonMenu" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="nav-links">
+                <i class="fa-solid fa-circle-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            <ul class="EnlacesNav" id="nav-links">
+
+                <li><a href="#LugaresReconocidos" data-i18n="Header.Nav.Lugares"></a></li>
+                <li><a href="#ActividadesPorRealizar" data-i18n="Header.Nav.Actividades"></a></li>
+                <li><a href="#PlanificaViaje" data-i18n="Header.Nav.Planifica"></a></li>
+                <li><a href="#Eventos" data-i18n="Header.Nav.Eventos"></a></li>
+                <li><a href="Blog.html" data-i18n="Header.Nav.Blog"></a></li>
+                <li><a href="Contacto.html" data-i18n="Header.Nav.Contacto"></a></li>
+
+                <li>
+                    <button id="BotonIdioma" class="BotonIcono" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-solid fa-language" aria-hidden="true"></i>
+                        <span data-i18n="Header.Idioma"></span>
+                    </button>
+                </li>
+
+                <li>
+                    <button id="abrirMapa" class="BotonIcono BotonMapa" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-regular fa-map" aria-hidden="true"></i>
+                        <span data-i18n="Header.Mapa"></span>
+                    </button>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MODAL IDIOMA -->
+    <div id="ModalIdioma" class="ModalIdioma" role="dialog" aria-modal="true">
+
+        <div class="ContenidoModal">
+
+            <button class="CerrarModal BotonGral" id="CerrarModal" data-i18n-aria-label="Modal.Cerrar">
+                &times;
+            </button>
+
+            <h3 data-i18n="Modal.Titulo"></h3>
+
+            <div class="FnIdioma">
+                <button class="OpcionIdioma BotonGral" data-lang="es">
+                    <img src="img/es.png" data-i18n-alt="Modal.Idiomas.Es">
+                </button>
+
+                <button class="OpcionIdioma BotonGral" data-lang="en">
+                    <img src="img/en.png" data-i18n-alt="Modal.Idiomas.En">
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL BIENVENIDA -->
+    <div id="ModalBienvenida" role="dialog" aria-modal="true">
+
+        <div class="ContenidoModal">
+
+            <h3 id="SaludoBienvenida" data-i18n="Bienvenida.Saludo"></h3>
+
+            <p id="DescIdioma">Elige tu idioma / Choose your language 👇🏻</p>
+
+            <div class="FnIdioma">
+                <button class="OpcionIdioma BotonGral" data-lang="es">
+                    <img src="img/es.png" data-i18n-alt="Modal.Idiomas.Es">
+                </button>
+
+                <button class="OpcionIdioma BotonGral" data-lang="en">
+                    <img src="img/en.png" data-i18n-alt="Modal.Idiomas.En">
+                </button>
+            </div>
+
+            <div id="BienvenidaConfirmacion">
+                <i class="fa-solid fa-circle-check IconoOk2" aria-hidden="true"></i>
+                <span data-i18n="Bienvenida.Mensaje"></span>
+            </div>
+
+        </div>
+    </div>
+    
+    <!--====== MAIN  ============-->
+    <main id="ContenidoPrincipalIndex">
+
+        <!--====== BOTÓN ACCESIBILIDAD ======-->
+        <button id="btnAccesibilidad" class="BotonAccessibilidad" data-i18n-title="Accesibilidad.Titulo"
+            data-i18n-aria-label="Accesibilidad.Titulo">
+
+            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+        </button>
+
+        <div id="menuAccesibilidad" class="PanelMenuAccesibilidad">
+
+            <div class="MenuAccesEncabezado">
+                <span data-i18n="Acces.Titulo"></span>
+                <button id="cerrarAcc" data-i18n-aria-label="Acces.Cerrar">&times;</button>
+            </div>
+
+            <div class="MenuAccesCuerpo">
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Tamano"></small>
+
+                    <div class="MenuAccesFilaBotones">
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(0.1)">
+                            <i class="fa-solid fa-plus"></i>
+                            <span data-i18n="Acces.Botones.Aumentar"></span>
+                        </button>
+
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(-0.1)">
+                            <i class="fa-solid fa-minus"></i>
+                            <span data-i18n="Acces.Botones.Reducir"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Visual"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('modo-contraste')">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <span data-i18n="Acces.Botones.Contraste"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('resaltar-enlaces')">
+                        <i class="fa-solid fa-link"></i>
+                        <span data-i18n="Acces.Botones.Enlaces"></span>
+                    </button>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Lectura"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('fuente-legible')">
+                        <i class="fa-solid fa-font"></i>
+                        <span data-i18n="Acces.Botones.Fuente"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('cursor-grande')">
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                        <span data-i18n="Acces.Botones.Cursor"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('sin-animaciones')">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <span data-i18n="Acces.Botones.Animaciones"></span>
+                    </button>
+                </div>
+
+                <hr>
+
+                <button class="MenuAccesOpcion BotonReiniciar" onclick="restablecerTodo()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span data-i18n="Acces.Botones.Reset"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!--====== BOTÓN IR ARRIBA ======-->
+        <button id="BotonArriba" class="BotonArriba fa-solid fa-circle-arrow-up" aria-label="Volver arriba"></button>
+
+        <!--====== SECCIÓN 1 – BIENVENIDA  ======-->
+        <section id="Seccion1Bienvenida" class="Slider">
+
+            <div class="SombraArriba"></div>
+            <div class="SombraAbajo"></div>
+
+            <button class="BotonSlider Anterior" type="button" aria-label="Anterior">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <button class="BotonSlider Siguiente" type="button" aria-label="Siguiente">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+
+            <div class="Slides">
+
+                <!-- SLIDE 1 -->
+                <div class="Slide Activa">
+                    <video src="mp4/video1.mp4" autoplay muted loop playsinline preload="auto"
+                        aria-hidden="true"></video>
+                    <div class="Overlay"></div>
+                    <div class="ContenidoSlide">
+                        <h1 data-i18n="Slider.Slide1.Titulo"></h1>
+                        <p class="DescripcionS" data-i18n="Slider.Slide1.Descripcion"></p>
+
+                        <div class="BotonesSlide">
+                            <a href="#LugaresReconocidos" class="BotonPrincipal" data-i18n="Slider.Slide1.Boton1"></a>
+
+                            <a href="#PlanificaViaje" class="BotonSecundario" data-i18n="Slider.Slide1.Boton2"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="Slide">
+                    <video src="mp4/video2.mp4" autoplay muted loop playsinline preload="auto"></video>
+                    <div class="Overlay"></div>
+                    <div class="ContenidoSlide">
+                        <h1 data-i18n="Slider.Slide2.Titulo"></h1>
+                        <p class="DescripcionS" data-i18n="Slider.Slide2.Descripcion"></p>
+
+                        <div class="BotonesSlide">
+                            <a href="#ActividadesPorRealizar" class="BotonPrincipal"
+                                data-i18n="Slider.Slide2.Boton1"></a>
+
+                            <a href="#Mapa" class="BotonSecundario" data-i18n="Slider.Slide2.Boton2"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="Slide">
+                    <video src="mp4/video3.mp4" autoplay muted loop playsinline preload="auto"></video>
+                    <div class="Overlay"></div>
+                    <div class="ContenidoSlide">
+                        <h1 data-i18n="Slider.Slide3.Titulo"></h1>
+                        <p class="DescripcionS" data-i18n="Slider.Slide3.Descripcion"></p>
+
+                        <div class="BotonesSlide">
+                            <a href="#Mapa" class="BotonPrincipal" data-i18n="Slider.Slide3.Boton1"></a>
+
+                            <a href="#Eventos" class="BotonSecundario" data-i18n="Slider.Slide3.Boton2"></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 4 -->
+                <div class="Slide">
+                    <video src="mp4/video4.mp4" autoplay muted loop playsinline preload="auto"></video>
+                    <div class="Overlay"></div>
+                    <div class="ContenidoSlide">
+                        <h1 data-i18n="Slider.Slide4.Titulo"></h1>
+                        <p class="DescripcionS" data-i18n="Slider.Slide4.Descripcion"></p>
+
+                        <div class="BotonesSlide">
+                            <a href="#PlanificaViaje" class="BotonPrincipal" data-i18n="Slider.Slide4.Boton1"></a>
+
+                            <a href="contacto.html" class="BotonSecundario" data-i18n="Slider.Slide4.Boton2"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="Indicadores"></div>
+
+            <button id="pausarSlider" class="BotonSlider BotonPausa" data-i18n-aria-label="Slider.Pausa">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+
+        </section>
+
+        <!--====== SECCIÓN 2 LUGARES RECONOCIDOS  ======-->
+        <section id="LugaresReconocidos" class="ScContenedor" style="margin-top: 50px;">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza"></div>
+                        <span data-i18n="Main.Lugares.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 data-i18n="Main.Lugares.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Lugares.Descripcion"></p>
+                </div>
+
+                <div class="FilaTarjetas">
+
+                    <!-- TARJETA 1 -->
+                    <div class="Tarjeta">
+                        <div class="ImagenTarjeta">
+                            <img src="img/LagoLucerna.jpg" data-i18n-alt="Main.Lugares.Lucerna.Alt">
+
+                            <div class="OverlayTarjeta">
+                                <h3 class="TituloTarjeta" data-i18n="Main.Lugares.Lucerna.Titulo"></h3>
+
+                                <p class="DescTarjeta" data-i18n="Main.Lugares.Lucerna.Descripcion"></p>
+
+                                <button class="BotonSecundario BotonTarjeta" data-i18n="Main.Lugares.Boton"
+                                    data-i18n-aria-label="Main.Lugares.Lucerna.Aria">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 2 -->
+                    <div class="Tarjeta">
+                        <div class="ImagenTarjeta">
+                            <img src="img/MontañasZermatt.jpg" data-i18n-alt="Main.Lugares.Zermatt.Alt">
+
+                            <div class="OverlayTarjeta">
+                                <h3 class="TituloTarjeta" data-i18n="Main.Lugares.Zermatt.Titulo"></h3>
+
+                                <p class="DescTarjeta" data-i18n="Main.Lugares.Zermatt.Descripcion"></p>
+
+                                <button class="BotonSecundario BotonTarjeta" data-i18n="Main.Lugares.Boton"
+                                    data-i18n-aria-label="Main.Lugares.Zermatt.Aria">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="FilaTarjetas">
+
+                    <!-- TARJETA 3 -->
+                    <div class="Tarjeta">
+                        <div class="ImagenTarjeta">
+                            <img src="img/CastilloChillon.jpg" data-i18n-alt="Main.Lugares.Chillon.Alt">
+
+                            <div class="OverlayTarjeta">
+                                <h3 class="TituloTarjeta" data-i18n="Main.Lugares.Chillon.Titulo"></h3>
+
+                                <p class="DescTarjeta" data-i18n="Main.Lugares.Chillon.Descripcion"></p>
+
+                                <button class="BotonSecundario BotonTarjeta" data-i18n="Main.Lugares.Boton"
+                                    data-i18n-aria-label="Main.Lugares.Chillon.Aria">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 4 -->
+                    <div class="Tarjeta">
+                        <div class="ImagenTarjeta">
+                            <img src="img/CiudadGinebra.jpg" data-i18n-alt="Main.Lugares.Ginebra.Alt">
+
+                            <div class="OverlayTarjeta">
+                                <h3 class="TituloTarjeta" data-i18n="Main.Lugares.Ginebra.Titulo"></h3>
+
+                                <p class="DescTarjeta" data-i18n="Main.Lugares.Ginebra.Descripcion"></p>
+
+                                <button class="BotonSecundario BotonTarjeta" data-i18n="Main.Lugares.Boton"
+                                    data-i18n-aria-label="Main.Lugares.Ginebra.Aria">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 3 SITIOS RECONOCIDOS X3  ======-->
+        <section id="LugaresReconocidosx3" class="ScContenedor" style="background-color: #f4f4f4;">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza"></div>
+                        <span data-i18n="Main.Descubrir.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 data-i18n="Main.Descubrir.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Descubrir.Descripcion"></p>
+                </div>
+
+                <div class="FilaTarjetasX3">
+
+                    <!-- TARJETA 1 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/LagoOeschinen.jpg" data-i18n-alt="Main.Descubrir.Oeschinen.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/destinos/lago-de-oeschinen/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.Oeschinen.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <span class="UbicacionTarjetaX3">
+                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                    <span data-i18n="Main.Descubrir.Oeschinen.Ubicacion"></span>
+                                </span>
+
+                                <h3 class="TituloTarjetaX3" data-i18n="Main.Descubrir.Oeschinen.Titulo"></h3>
+
+                                <p class="DescTarjetaX3" data-i18n="Main.Descubrir.Oeschinen.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 2 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/Aareschlucht.jpg" data-i18n-alt="Main.Descubrir.Aareschlucht.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/descubrir-suiza/garganta-aareschlucht/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.Aareschlucht.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <span class="UbicacionTarjetaX3">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span data-i18n="Main.Descubrir.Aareschlucht.Ubicacion"></span>
+                                </span>
+
+                                <h3 data-i18n="Main.Descubrir.Aareschlucht.Titulo"></h3>
+                                <p data-i18n="Main.Descubrir.Aareschlucht.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 3 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/ValBregaglia.jpg" data-i18n-alt="Main.Descubrir.ValBregaglia.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/destinos/bregaglia-bergell/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.ValBregaglia.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <span class="UbicacionTarjetaX3">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span data-i18n="Main.Descubrir.ValBregaglia.Ubicacion"></span>
+                                </span>
+
+                                <h3 data-i18n="Main.Descubrir.ValBregaglia.Titulo"></h3>
+                                <p data-i18n="Main.Descubrir.ValBregaglia.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 4 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/CreuxduVan.jpg" data-i18n-alt="Main.Descubrir.Creux.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/descubrir-suiza/creux-du-van-espectaculo-natural/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.Creux.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span data-i18n="Main.Descubrir.Creux.Ubicacion"></span>
+                                <h3 data-i18n="Main.Descubrir.Creux.Titulo"></h3>
+                                <p data-i18n="Main.Descubrir.Creux.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 5 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/Lauterbrunnental.jpg" data-i18n-alt="Main.Descubrir.Lauterbrunnen.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/destinos/lauterbrunnen/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.Lauterbrunnen.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span data-i18n="Main.Descubrir.Lauterbrunnen.Ubicacion"></span>
+                                <h3 data-i18n="Main.Descubrir.Lauterbrunnen.Titulo"></h3>
+                                <p data-i18n="Main.Descubrir.Lauterbrunnen.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA 6 -->
+                    <div class="TarjetaX3">
+                        <div class="ImagenTarjetaX3">
+                            <img src="img/CastillodeTarasp.jpg" data-i18n-alt="Main.Descubrir.Tarasp.Alt">
+
+                            <div class="BotonTarjetaX3">
+                                <a href="https://www.myswitzerland.com/es/descubrir-suiza/schloss-tarasp-chaste-da-tarasp/"
+                                    data-i18n="Main.Descubrir.Boton"
+                                    data-i18n-aria-label="Main.Descubrir.Tarasp.Aria"></a>
+                            </div>
+
+                            <div class="OverlayTarjetaX3">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span data-i18n="Main.Descubrir.Tarasp.Ubicacion"></span>
+                                <h3 data-i18n="Main.Descubrir.Tarasp.Titulo"></h3>
+                                <p data-i18n="Main.Descubrir.Tarasp.Descripcion"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 4 ACTIVIDADES POR REALIZAR  ======-->
+        <section id="ActividadesPorRealizar" class="ScContenedor">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza"></div>
+                        <span data-i18n="Main.Actividades.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 data-i18n="Main.Actividades.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Actividades.Descripcion"></p>
+                </div>
+
+                <div class="Tabs">
+                    <div class="TabsBotones" role="tablist" data-i18n-aria-label="Main.Actividades.Tabs.Aria">
+
+                        <button class="TabActiva" data-tab="temporadas" role="tab" aria-selected="true"
+                            aria-controls="temporadas" id="tab-temporadas">
+                            <i class="fa-solid fa-snowflake" aria-hidden="true"></i>
+                            <span data-i18n="Main.Actividades.Tabs.Temporadas"></span>
+                        </button>
+
+                        <button data-tab="naturaleza" role="tab" aria-selected="false" aria-controls="naturaleza"
+                            id="tab-naturaleza">
+                            <i class="fa-solid fa-person-hiking" aria-hidden="true"></i>
+                            <span data-i18n="Main.Actividades.Tabs.Naturaleza"></span>
+                        </button>
+
+                        <button data-tab="aventura" role="tab" aria-selected="false" aria-controls="aventura"
+                            id="tab-aventura">
+                            <i class="fa-solid fa-bicycle" aria-hidden="true"></i>
+                            <span data-i18n="Main.Actividades.Tabs.Aventura"></span>
+                        </button>
+
+                        <button data-tab="cultura" role="tab" aria-selected="false" aria-controls="cultura"
+                            id="tab-cultura">
+                            <i class="fa-solid fa-drum" aria-hidden="true"></i>
+                            <span data-i18n="Main.Actividades.Tabs.Cultura"></span>
+                        </button>
+
+                        <button data-tab="otros" role="tab" aria-selected="false" aria-controls="otros" id="tab-otros">
+                            <i class="fa-solid fa-grip" aria-hidden="true"></i>
+                            <span data-i18n="Main.Actividades.Tabs.Otros"></span>
+                        </button>
+                    </div>
+
+                    <div class="TabsContenido">
+
+                        <!-- TEMPORADAS -->
+                        <div id="temporadas" class="ContenidoTab Activo" role="tabpanel"
+                            aria-labelledby="tab-temporadas">
+                            <div class="GridActividades">
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/Primavera.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Primavera.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Primavera.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Primavera.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/VeranoLagos.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Verano.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Verano.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Verano.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/OtoñoenValais.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Otono.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Otono.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Otono.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/InviernoZermatt.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Invierno.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Invierno.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Invierno.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/MercadosNavideños.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Navidad.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Navidad.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Navidad.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/FestivalVerano.jpg"
+                                        data-i18n-alt="Main.Actividades.Temporadas.Festival.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Temporadas.Festival.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Temporadas.Festival.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- NATURALEZA -->
+                        <div id="naturaleza" class="ContenidoTab" role="tabpanel" aria-labelledby="tab-naturaleza"
+                            hidden>
+                            <div class="GridActividades">
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/RegiónJungfrau.jpg"
+                                        data-i18n-alt="Main.Actividades.Naturaleza.Jungfrau.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Jungfrau.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Jungfrau.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/Appenzell.jpg"
+                                        data-i18n-alt="Main.Actividades.Naturaleza.Appenzell.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Appenzell.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Appenzell.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/lagoLucerna.jpg"
+                                        data-i18n-alt="Main.Actividades.Naturaleza.Lucerna.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Lucerna.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Lucerna.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/ParqueNacionalSuizo.jpg"
+                                        data-i18n-alt="Main.Actividades.Naturaleza.Parque.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Parque.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Parque.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/CataratasRin.jpg" data-i18n-alt="Main.Actividades.Naturaleza.Rin.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Rin.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Rin.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/ValBregaglia.jpg"
+                                        data-i18n-alt="Main.Actividades.Naturaleza.Bregaglia.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Naturaleza.Bregaglia.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Naturaleza.Bregaglia.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- AVENTURA -->
+                        <div id="aventura" class="ContenidoTab" role="tabpanel" aria-labelledby="tab-aventura" hidden>
+                            <div class="GridActividades">
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/ParapenteInterlaken.jpg"
+                                        data-i18n-alt="Main.Actividades.Aventura.Parapente.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Parapente.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Parapente.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/EsquiStMoritz.jpg"
+                                        data-i18n-alt="Main.Actividades.Aventura.Esqui.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Esqui.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Esqui.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/MountainBikeAlpino.jpg"
+                                        data-i18n-alt="Main.Actividades.Aventura.Bike.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Bike.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Bike.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/EscaladaRoca.jpg"
+                                        data-i18n-alt="Main.Actividades.Aventura.Escalada.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Escalada.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Escalada.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/RaftingRin.jpg" data-i18n-alt="Main.Actividades.Aventura.Rafting.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Rafting.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Rafting.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/BuceoLagosAlpinos.jpg"
+                                        data-i18n-alt="Main.Actividades.Aventura.Buceo.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Aventura.Buceo.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Aventura.Buceo.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CULTURA -->
+                        <div id="cultura" class="ContenidoTab" role="tabpanel" aria-labelledby="tab-cultura" hidden>
+                            <div class="GridActividades">
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/ZúrichHistórico.jpg"
+                                        data-i18n-alt="Main.Actividades.Cultura.Zurich.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Zurich.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Zurich.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/CiudadGinebra.jpg"
+                                        data-i18n-alt="Main.Actividades.Cultura.Ginebra.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Ginebra.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Ginebra.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/LucernaMedieval.jpg"
+                                        data-i18n-alt="Main.Actividades.Cultura.Lucerna.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Lucerna.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Lucerna.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/MuseoReloj.jpg" data-i18n-alt="Main.Actividades.Cultura.Reloj.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Reloj.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Reloj.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/CastilloChillon.jpg"
+                                        data-i18n-alt="Main.Actividades.Cultura.Chillon.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Chillon.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Chillon.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/BasileaCultural.jpg"
+                                        data-i18n-alt="Main.Actividades.Cultura.Basilea.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Cultura.Basilea.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Cultura.Basilea.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- OTROS -->
+                        <div id="otros" class="ContenidoTab" role="tabpanel" aria-labelledby="tab-otros" hidden>
+                            <div class="GridActividades">
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/RutaChocolate.jpg"
+                                        data-i18n-alt="Main.Actividades.Otros.Chocolate.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Chocolate.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Chocolate.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/ExperienciaQueso.jpg"
+                                        data-i18n-alt="Main.Actividades.Otros.Queso.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Queso.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Queso.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/GlacierExpress.jpg" data-i18n-alt="Main.Actividades.Otros.Tren.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Tren.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Tren.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/SpasAlpinos.jpg" data-i18n-alt="Main.Actividades.Otros.Spa.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Spa.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Spa.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/FondueTradicional.jpg"
+                                        data-i18n-alt="Main.Actividades.Otros.Fondue.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Fondue.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Fondue.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                                <div class="TarjetaActividad">
+                                    <img src="img/RutasPanorámicas.jpg"
+                                        data-i18n-alt="Main.Actividades.Otros.Rutas.Alt">
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Actividades.Otros.Rutas.Titulo"></h3>
+                                        <p data-i18n="Main.Actividades.Otros.Rutas.Descripcion"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 5 PLANIFICA TU VIAJE  ======-->
+        <section id="PlanificaViaje" class="ScContenedor" style="background-color: #f4f4f4;">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza"></div>
+                        <span data-i18n="Main.Planifica.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 data-i18n="Main.Planifica.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p2 data-i18n="Main.Planifica.Descripcion">
+                        </p>
+                </div>
+
+                <div class="GridIconosTarjetas">
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-calendar-check"></i></div>
+                        <h3 data-i18n="Main.Planifica.Fechas.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Fechas.Desc"></p>
+                    </div>
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-map-location-dot"></i></div>
+                        <h3 data-i18n="Main.Planifica.Destinos.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Destinos.Desc"></p>
+                    </div>
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-hotel"></i></div>
+                        <h3 data-i18n="Main.Planifica.Alojamiento.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Alojamiento.Desc"></p>
+                    </div>
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-train"></i></div>
+                        <h3 data-i18n="Main.Planifica.Transporte.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Transporte.Desc"></p>
+                    </div>
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-plane-departure"></i></div>
+                        <h3 data-i18n="Main.Planifica.Vuelos.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Vuelos.Desc"></p>
+                    </div>
+
+                    <div class="TarjetaIcono">
+                        <div class="Icono"><i class="fa-solid fa-circle-info"></i></div>
+                        <h3 data-i18n="Main.Planifica.Info.Titulo"></h3>
+                        <p data-i18n="Main.Planifica.Info.Desc"></p>
+                    </div>
+
+                </div>
+
+                <div class="Descripcion" style="margin-top: 40px;">
+                    <h2 data-i18n="Main.Planifica.FormTitulo"></h2>
+                </div>
+
+                <form class="Formulario">
+
+                    <div class="GrupoCampos">
+
+                        <div class="Campo">
+                            <label for="fecha-llegada" data-i18n="Main.Planifica.Form.Llegada"></label>
+                            <input type="date" id="fecha-llegada" required>
+                        </div>
+
+                        <div class="Campo">
+                            <label for="fecha-salida" data-i18n="Main.Planifica.Form.Salida"></label>
+                            <input type="date" id="fecha-salida" required>
+                        </div>
+
+                        <div class="Campo">
+                            <label for="num-viajeros" data-i18n="Main.Planifica.Form.Viajeros"></label>
+                            <select id="num-viajeros" required>
+                                <option value="" disabled selected data-i18n="Main.Planifica.Form.Select"></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5+</option>
+                            </select>
+                        </div>
+
+                        <fieldset class="Campo" style="border:none;">
+                            <legend data-i18n="Main.Planifica.Form.Plan"></legend>
+
+                            <label><input type="checkbox"> <span
+                                    data-i18n="Main.Planifica.Form.Aventura"></span></label>
+                            <label><input type="checkbox"> <span data-i18n="Main.Planifica.Form.Cultura"></span></label>
+                            <label><input type="checkbox"> <span
+                                    data-i18n="Main.Planifica.Form.Naturaleza"></span></label>
+                            <label><input type="checkbox"> <span data-i18n="Main.Planifica.Form.Hotel"></span></label>
+                        </fieldset>
+
+                    </div>
+
+                    <button type="submit" class="BotonEnviar" data-i18n="Main.Planifica.Form.Boton"></button>
+                </form>
+
+                <!-- MODAL -->
+                <div id="ModalOk" class="ModalOk">
+                    <div class="ContenidoModal">
+
+                        <a class="CerrarModal" id="CerrarModalOk">&times;</a>
+
+                        <h3 data-i18n="Main.Planifica.Modal.Titulo"></h3>
+
+                        <i class="fa-solid fa-circle-check IconoOk"></i>
+
+                        <p data-i18n="Main.Planifica.Modal.Desc"></p>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 6  MOMENTOS COMPARTIDOS  ======-->
+        <section id="MomentosCompartidos" class="ScContenedor" aria-labelledby="titulo-momentos">
+
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Momentos.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-momentos" data-i18n="Main.Momentos.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Momentos.Descripcion"></p>
+                </div>
+
+                <div class="SliderIG" role="region" aria-roledescription="carrusel"
+                    data-i18n-aria-label="Main.Momentos.Carrusel">
+
+                    <button class="PrevIG" data-i18n-aria-label="Main.Momentos.Anterior">&#10094;</button>
+
+                    <div class="ViewportIG">
+                        <div class="TrackIG">
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-01.jpg" data-i18n-alt="Main.Momentos.Img1">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-02.jpg" data-i18n-alt="Main.Momentos.Img2">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-03.jpg" data-i18n-alt="Main.Momentos.Img3">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-04.jpg" data-i18n-alt="Main.Momentos.Img4">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-05.jpg" data-i18n-alt="Main.Momentos.Img5">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-06.jpg" data-i18n-alt="Main.Momentos.Img6">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-07.jpg" data-i18n-alt="Main.Momentos.Img7">
+                            </div>
+
+                            <div class="SlideIG">
+                                <img src="img/IGPostSz-08.jpg" data-i18n-alt="Main.Momentos.Img8">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="DotsIG" role="group" data-i18n-aria-label="Main.Momentos.Dots"></div>
+
+                    <button class="NextIG" data-i18n-aria-label="Main.Momentos.Siguiente">&#10095;</button>
+
+                </div>
+
+                <!-- MODAL -->
+                <div class="ModalExpand" id="ModalExpand" role="dialog" aria-modal="true" aria-labelledby="titulo-modal"
+                    hidden>
+
+                    <button class="BotonPrincipal CerrarExpand"
+                        data-i18n-aria-label="Main.Momentos.Cerrar">&times;</button>
+
+                    <h3 id="titulo-modal" class="sr-only" data-i18n="Main.Momentos.ModalTitulo"></h3>
+
+                    <img id="ImagenExpandida" data-i18n-alt="Main.Momentos.ModalAlt">
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 7 EVENTOS  ======-->
+        <section id="Eventos" class="ScContenedor" style="background-color: #f4f4f4;">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Eventos.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 data-i18n="Main.Eventos.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Eventos.Descripcion"></p>
+                </div>
+
+                <div class="ContenidoTab Activo">
+                    <div class="GridActividades">
+
+                        <!-- EVENTO 1 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/JazzMontreux.jpeg" data-i18n-alt="Main.Eventos.Montreux.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Montreux.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Montreux.Desc"></p>
+
+                                <a href="https://www.montreuxjazzfestival.com/fr/" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Montreux.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- EVENTO 2 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/CarnavalBasilea.jpg" data-i18n-alt="Main.Eventos.Basilea.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Basilea.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Basilea.Desc"></p>
+
+                                <a href="https://fasnacht.ch/" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Basilea.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- EVENTO 3 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/SwissIndoorsBasel.jpg" data-i18n-alt="Main.Eventos.Tenis.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Tenis.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Tenis.Desc"></p>
+
+                                <a href="https://www.swissindoorsbasel.ch/" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Tenis.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- EVENTO 4 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/LocarnoFestival.jpg" data-i18n-alt="Main.Eventos.Locarno.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Locarno.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Locarno.Desc"></p>
+
+                                <a href="https://www.locarnofestival.ch/home.html" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Locarno.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- EVENTO 5 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/LauberhornRennen.jpg" data-i18n-alt="Main.Eventos.Lauberhorn.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Lauberhorn.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Lauberhorn.Desc"></p>
+
+                                <a href="https://www.lauberhorn.ch/" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Lauberhorn.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- EVENTO 6 -->
+                        <div class="TarjetaActividad">
+                            <img src="img/FiestaQuesoGruyeres.jpg" data-i18n-alt="Main.Eventos.Gruyeres.Alt">
+
+                            <div class="TarjetaContenido">
+                                <h3 data-i18n="Main.Eventos.Gruyeres.Titulo"></h3>
+                                <p data-i18n="Main.Eventos.Gruyeres.Desc"></p>
+
+                                <a href="https://fribourg.ch/en/la-gruyere/" target="_blank">
+                                    <button class="BotonPrincipal" data-i18n="Main.Eventos.Boton"
+                                        data-i18n-aria-label="Main.Eventos.Gruyeres.Aria">
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 8 CLASIFICACIÓN  ======-->
+        <section id="Opiniones" class="ScContenedor" aria-labelledby="titulo-opiniones">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Opiniones.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-opiniones" data-i18n="Main.Opiniones.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Opiniones.Descripcion"></p>
+                </div>
+
+                <div class="SeccionOpiniones Contenedor">
+
+                    <!-- FILA 1 -->
+                    <div class="FilaOpiniones">
+
+                        <!-- 1 -->
+                        <div class="TarjetaOpinion estrellas-4" data-i18n-aria-label="Main.Opiniones.Rating4">
+                            <h3 data-i18n="Main.Opiniones.Op1.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op1.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=29" data-i18n-alt="Main.Opiniones.Op1.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">María Gómez</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op1.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="TarjetaOpinion estrellas-3" data-i18n-aria-label="Main.Opiniones.Rating3">
+                            <h3 data-i18n="Main.Opiniones.Op2.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op2.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=2" data-i18n-alt="Main.Opiniones.Op2.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Carlos Ruiz</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op2.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="TarjetaOpinion estrellas-2" data-i18n-aria-label="Main.Opiniones.Rating2">
+                            <h3 data-i18n="Main.Opiniones.Op3.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op3.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=44" data-i18n-alt="Main.Opiniones.Op3.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Laura Méndez</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op3.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="TarjetaOpinion estrellas-4" data-i18n-aria-label="Main.Opiniones.Rating4">
+                            <h3 data-i18n="Main.Opiniones.Op4.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op4.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=4" data-i18n-alt="Main.Opiniones.Op4.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Andrés Silva</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op4.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- FILA 2 -->
+                    <div class="FilaOpiniones">
+
+                        <!-- 5 -->
+                        <div class="TarjetaOpinion estrellas-1" data-i18n-aria-label="Main.Opiniones.Rating1">
+                            <h3 data-i18n="Main.Opiniones.Op5.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op5.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=5" data-i18n-alt="Main.Opiniones.Op5.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Sofía Torres</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op5.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6 -->
+                        <div class="TarjetaOpinion estrellas-4" data-i18n-aria-label="Main.Opiniones.Rating4">
+                            <h3 data-i18n="Main.Opiniones.Op6.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op6.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=6" data-i18n-alt="Main.Opiniones.Op6.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Daniel Castro</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op6.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7 -->
+                        <div class="TarjetaOpinion estrellas-3" data-i18n-aria-label="Main.Opiniones.Rating3">
+                            <h3 data-i18n="Main.Opiniones.Op7.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op7.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=45" data-i18n-alt="Main.Opiniones.Op7.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Paula Ríos</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op7.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8 -->
+                        <div class="TarjetaOpinion estrellas-2" data-i18n-aria-label="Main.Opiniones.Rating2">
+                            <h3 data-i18n="Main.Opiniones.Op8.Titulo"></h3>
+                            <p data-i18n="Main.Opiniones.Op8.Desc"></p>
+                            <div class="AutorOpinion">
+                                <img src="https://i.pravatar.cc/80?img=8" data-i18n-alt="Main.Opiniones.Op8.AutorAlt">
+                                <div>
+                                    <span class="NombreAutor">Camilo Vargas</span>
+                                    <span class="FechaOpinion" data-i18n="Main.Opiniones.Op8.Fecha"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 9 MAPA INTERACTIVO  ======-->
+        <section id="Mapa" class="ScContenedor" style="background-color: #f4f4f4;" aria-labelledby="titulo-mapa">
+
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Mapa.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-mapa" data-i18n="Main.Mapa.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Mapa.Descripcion"></p>
+                </div>
+
+                <div class="MapaResponsive">
+                    <iframe id="MapaIframe" data-i18n-title="Main.Mapa.Iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398238.9288952476!2d6.902303823682438!3d46.80557824825584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2sSuiza!5e0!3m2!1ses!2sco!4v1772377173050!5m2!1ses!2sco"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 10 NOTICIAS  ======-->
+        <section id="Noticias" class="ScContenedor" aria-labelledby="titulo-noticias">
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Noticias.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-noticias" data-i18n="Main.Noticias.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Noticias.Descripcion"></p>
+                </div>
+
+                <div id="SliderNoticiasTurismo" class="SliderNoticias Contenedor" role="region"
+                    aria-roledescription="carrusel" data-i18n-aria-label="Main.Noticias.Carrusel">
+
+                    <button class="BotonSliderNoticias PrevNoticias"
+                        data-i18n-aria-label="Main.Noticias.Anterior">❮</button>
+
+                    <div class="ViewportNoticias">
+                        <div class="TrackNoticias">
+
+                            <!-- NOTICIA 1 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/AlpesSuizos.jpg" data-i18n-alt="Main.Noticias.N1.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N1.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N1.Desc"></p><br>
+
+                                        <a href="https://www.myswitzerland.com/es/destinos/naturaleza/"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N1.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 2 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/Zermatt.jpg" data-i18n-alt="Main.Noticias.N2.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N2.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N2.Desc"></p><br>
+
+                                        <a href="https://www.myswitzerland.com/es/destinos/zermatt/"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N2.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 3 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/Glacier.jpg" data-i18n-alt="Main.Noticias.N3.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N3.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N3.Desc"></p><br>
+
+                                        <a href="https://glacierexpress.ch/en" class="BotonPrincipal"
+                                            data-i18n="Main.Noticias.Boton" data-i18n-aria-label="Main.Noticias.N3.Aria"
+                                            target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 4 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/LagoLucerna2.jpg" data-i18n-alt="Main.Noticias.N4.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N4.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N4.Desc"></p><br>
+
+                                        <a href="https://www.interhome.es/travelguide/suiza/los-lagos-mas-bonitos-de-suiza/"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N4.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 5 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/CiudadesMedievales.jpeg" data-i18n-alt="Main.Noticias.N5.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N5.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N5.Desc"></p><br>
+
+                                        <a href="https://www.myswitzerland.com/es/descubrir-suiza/ciudades-cultura/pueblos-antiguos-busqueda/"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N5.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 6 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/GastronomiaSuiza.jpg" data-i18n-alt="Main.Noticias.N6.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N6.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N6.Desc"></p><br>
+
+                                        <a href="https://www.myswitzerland.com/es/descubrir-suiza/ruta-del-chocolate/"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N6.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 7 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/NoticiaSeguro.jpg" data-i18n-alt="Main.Noticias.N7.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N7.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N7.Desc"></p><br>
+
+                                        <a href="https://viajes.nationalgeographic.com.es/lifestyle/paises-mas-seguros-mundo_20665"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N7.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTICIA 8 -->
+                            <div class="SlideNoticia">
+                                <div class="TarjetaActividad">
+                                    <img src="img/NoticiaEventos.jpg" data-i18n-alt="Main.Noticias.N8.Alt">
+
+                                    <div class="TarjetaContenido">
+                                        <h3 data-i18n="Main.Noticias.N8.Titulo"></h3>
+                                        <p data-i18n="Main.Noticias.N8.Desc"></p><br>
+
+                                        <a href="https://www.myswitzerland.com/es/descubrir-suiza/eventos/eventos-busqueda/?rubrik=festivalymusicales&p=7"
+                                            class="BotonPrincipal" data-i18n="Main.Noticias.Boton"
+                                            data-i18n-aria-label="Main.Noticias.N8.Aria" target="_blank"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button class="BotonSliderNoticias NextNoticias"
+                        data-i18n-aria-label="Main.Noticias.Siguiente">❯</button>
+
+                    <div class="DotsNoticias" role="group" data-i18n-aria-label="Main.Noticias.Dots"></div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 11 PATROCINADORES  ======-->
+        <section id="Patrocinadores" class="ScContenedor" style="background-color: #f4f4f4;"
+            aria-labelledby="titulo-patrocinadores">
+
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Patrocinadores.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-patrocinadores" data-i18n="Main.Patrocinadores.Titulo"></h2>
+                </div>
+
+                <div class="SliderLogos Contenedor" role="region" data-i18n-aria-label="Main.Patrocinadores.Carrusel">
+
+                    <div class="ViewportLogos">
+                        <div class="TrackLogos">
+
+                            <div class="SlideLogo">
+                                <img src="img/logo1.png" data-i18n-alt="Main.Patrocinadores.Logo1">
+                            </div>
+
+                            <div class="SlideLogo">
+                                <img src="img/logo2.png" data-i18n-alt="Main.Patrocinadores.Logo2">
+                            </div>
+
+                            <div class="SlideLogo">
+                                <img src="img/logo3.png" data-i18n-alt="Main.Patrocinadores.Logo3">
+                            </div>
+
+                            <div class="SlideLogo">
+                                <img src="img/logo4.png" data-i18n-alt="Main.Patrocinadores.Logo4">
+                            </div>
+
+                            <div class="SlideLogo">
+                                <img src="img/logo5.png" data-i18n-alt="Main.Patrocinadores.Logo5">
+                            </div>
+
+                            <div class="SlideLogo">
+                                <img src="img/logo6.png" data-i18n-alt="Main.Patrocinadores.Logo6">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--====== SECCIÓN 12 FORM CONTACTO  ======-->
+        <section id="Contacto" class="ScContenedor" aria-labelledby="titulo-contacto">
+
+            <div class="Contenedor">
+
+                <div class="Subtitulo">
+                    <span>
+                        <div class="CruzSuiza" aria-hidden="true"></div>
+                        <span data-i18n="Main.Contacto.Subtitulo"></span>
+                    </span>
+                </div>
+
+                <div class="Titulo">
+                    <h2 id="titulo-contacto" data-i18n="Main.Contacto.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="Main.Contacto.Descripcion"></p>
+                </div>
+
+                <div class="Contenedor" style="padding: 15px 0px 0px 0px;">
+                    <div class="FilaContacto">
+
+                        <!-- IMAGEN -->
+                        <div class="ColContacto w25c OcultarResponsive">
+                            <div class="ImagenContacto">
+                                <img src="img/SuizaFContacto.jpg" data-i18n-alt="Main.Contacto.Imagen">
+                            </div>
+                        </div>
+
+                        <!-- FORM -->
+                        <div class="ColContacto w75c">
+                            <div class="ConFormularioContacto">
+
+                                <form id="FormularioContacto">
+
+                                    <div class="Campo">
+                                        <label for="nombre_contacto">
+                                            <span data-i18n="Main.Contacto.Form.Nombre"></span>
+                                            <span style="color: #da291c;" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="text" id="nombre_contacto"
+                                            data-i18n-placeholder="Main.Contacto.Form.NombrePH" required
+                                            aria-required="true">
+                                    </div>
+
+                                    <div class="Campo">
+                                        <label for="apellido_contacto">
+                                            <span data-i18n="Main.Contacto.Form.Apellido"></span>
+                                            <span style="color: #da291c;" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="text" id="apellido_contacto"
+                                            data-i18n-placeholder="Main.Contacto.Form.ApellidoPH" required
+                                            aria-required="true">
+                                    </div>
+
+                                    <div class="Campo">
+                                        <label for="correo_contacto">
+                                            <span data-i18n="Main.Contacto.Form.Correo"></span>
+                                            <span style="color: #da291c;" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="email" id="correo_contacto"
+                                            data-i18n-placeholder="Main.Contacto.Form.CorreoPH" required
+                                            aria-required="true">
+                                    </div>
+
+                                    <div class="Campo">
+                                        <label for="mensaje_contacto">
+                                            <span data-i18n="Main.Contacto.Form.Mensaje"></span>
+                                            <span style="color: #da291c;" aria-hidden="true">*</span>
+                                        </label>
+                                        <textarea id="mensaje_contacto" rows="5"
+                                            data-i18n-placeholder="Main.Contacto.Form.MensajePH" required
+                                            aria-required="true"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="BotonEnviar"
+                                        data-i18n="Main.Contacto.Form.Boton"></button>
+
+                                </form>
+
+                                <!-- MODAL -->
+                                <div class="ModalContacto" id="ModalContacto" role="dialog" aria-modal="true"
+                                    aria-labelledby="modal-titulo">
+
+                                    <div class="ModalContactoBox">
+
+                                        <button class="CerrarModalContacto" id="CerrarModalContacto"
+                                            data-i18n-aria-label="Main.Contacto.Modal.Cerrar">&times;</button>
+
+                                        <h3 id="modal-titulo" data-i18n="Main.Contacto.Modal.Titulo"></h3>
+
+                                        <i class="fa-solid fa-circle-check IconoOk" aria-hidden="true"></i>
+
+                                        <p data-i18n="Main.Contacto.Modal.Desc"></p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer>
+        <div id="FooterSz" class="Footer">
+
+            <!-- LOGO -->
+            <div class="FooterCol FooterLogo">
+                <img src="img/LogoFooter.png" alt="Logo de Visit Suiza" data-i18n-alt="Footer.Logo">
+            </div>
+
+            <!-- NAVEGACIÓN -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Sitio.Titulo"></h3>
+
+                <a href="#LugaresReconocidos" data-i18n="Footer.Sitio.Lugares"></a>
+                <a href="#ActividadesPorRealizar" data-i18n="Footer.Sitio.Actividades"></a>
+                <a href="#PlanificaViaje" data-i18n="Footer.Sitio.Planifica"></a>
+                <a href="#Eventos" data-i18n="Footer.Sitio.Eventos"></a>
+                <a href="#Mapa" data-i18n="Footer.Sitio.Mapa"></a>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Contacto.Titulo"></h3>
+
+                <a href="mailto:info@visitsuiza.com" data-i18n="Footer.Contacto.Email"
+                    data-i18n-aria-label="Footer.Contacto.EmailAria"></a>
+
+                <a href="tel:+41000000000" data-i18n="Footer.Contacto.Telefono"
+                    data-i18n-aria-label="Footer.Contacto.TelefonoAria"></a>
+
+                <p class="FooterHorario" data-i18n="Footer.Contacto.Horario"></p>
+
+                <div class="RedesFooter">
+
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- LEGAL -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Info.Titulo"></h3>
+
+                <!-- Evitamos enlaces rotos -->
+                <a href="#FooterSz" data-i18n="Footer.Info.Terminos"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Cookies"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Accesibilidad"></a>
+            </div>
+
+        </div>
+
+        <!-- COPY -->
+        <div class="FooterCopy" data-i18n="Footer.Copy"></div>
+    </footer>
+
+    <!-- POPUP MAPA -->
+    <div id="ModalMapa" class="ModalMapa">
+        <div class="ModalContenido">
+
+            <span id="CerrarMapa">&times;</span>
+
+            <iframe id="Mapa"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398238.9288952476!2d6.902303823682438!3d46.80557824825584!2m3!1f0!2f0!3f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2sSuiza!5e0!3m2!1ses!2sco!4v1772377173050!5m2!1ses!2sco"
+                width="100%" height="500" style="border:0; border-radius:20px;" allowfullscreen loading="lazy">
+            </iframe>
+
+        </div>
+    </div>
+
+    <script src="js/Global.js"></script>
+    <script src="js/Complementos.js"></script>
+    <script src="js/PanelAccesibilidad.js"></script>
+    <script src="js/IrArriba.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/Traducciones.js"></script>
+
+</body>
+
+</html>

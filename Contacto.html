@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SE - Contacto</title>
+
+    <link rel="stylesheet" href="css/Estilos.css">
+    <link rel="stylesheet" href="css/Contacto.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+
+    <script src="https://kit.fontawesome.com/29c7957c70.js" crossorigin="anonymous"></script>
+
+    <style>
+        html,
+        body {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="#titulo-faq" class="SkipLink">
+        <i class="fa-solid fa-forward" aria-hidden="true"></i>
+        <span data-i18n="Skip.BtnSkip"></span>
+    </a>
+
+    <!--====== HEADER Y MENÚ  ============-->
+    <header>
+        <nav class="BarraNav" aria-label="Navegación principal">
+
+            <a href="index.html" class="Logo" aria-label="Ir a la página de inicio">
+                <img src="img/Isologo.png" alt="">
+                <div class="TextoLogo">
+                    <strong data-i18n="Header.Titulo"></strong> &nbsp;
+                    <span data-i18n="Header.Subtitulo"></span>
+                </div>
+            </a>
+
+            <button class="BotonMenu" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false"
+                aria-controls="nav-links">
+                <i class="fa-solid fa-circle-chevron-down" aria-hidden="true"></i>
+            </button>
+
+            <ul class="EnlacesNav" id="nav-links">
+
+                <li><a href="Index.html" data-i18n="Header.Nav.Index"></a></li>
+                <li><a href="Blog.html" data-i18n="Header.Nav.Blog"></a></li>
+
+                <li>
+                    <button id="BotonIdioma" class="BotonIcono" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-solid fa-language" aria-hidden="true"></i>
+                        <span data-i18n="Header.Idioma"></span>
+                    </button>
+                </li>
+
+                <li>
+                    <button id="abrirMapa" class="BotonIcono BotonMapa" aria-haspopup="dialog" aria-expanded="false">
+                        <i class="fa-regular fa-map" aria-hidden="true"></i>
+                        <span data-i18n="Header.Mapa"></span>
+                    </button>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MODAL IDIOMA -->
+    <div id="ModalIdioma" class="ModalIdioma" role="dialog" aria-modal="true">
+
+        <div class="ContenidoModal">
+
+            <button class="CerrarModal BotonGral" id="CerrarModal" data-i18n-aria-label="Modal.Cerrar">
+                &times;
+            </button>
+
+            <h3 data-i18n="Modal.Titulo"></h3>
+
+            <div class="FnIdioma">
+                <button class="OpcionIdioma BotonGral" data-lang="es">
+                    <img src="img/es.png" data-i18n-alt="Modal.Idiomas.Es">
+                </button>
+
+                <button class="OpcionIdioma BotonGral" data-lang="en">
+                    <img src="img/en.png" data-i18n-alt="Modal.Idiomas.En">
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--====== MAIN ============-->
+    <main>
+
+        <!--====== BOTÓN ACCESIBILIDAD ======-->
+        <button id="btnAccesibilidad" class="BotonAccessibilidad" data-i18n-title="Accesibilidad.Titulo"
+            data-i18n-aria-label="Accesibilidad.Titulo">
+
+            <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+        </button>
+
+        <div id="menuAccesibilidad" class="PanelMenuAccesibilidad">
+
+            <div class="MenuAccesEncabezado">
+                <span data-i18n="Acces.Titulo"></span>
+                <button id="cerrarAcc" data-i18n-aria-label="Acces.Cerrar">&times;</button>
+            </div>
+
+            <div class="MenuAccesCuerpo">
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Tamano"></small>
+
+                    <div class="MenuAccesFilaBotones">
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(0.1)">
+                            <i class="fa-solid fa-plus"></i>
+                            <span data-i18n="Acces.Botones.Aumentar"></span>
+                        </button>
+
+                        <button class="MenuAccesOpcion" onclick="cambiarTamano(-0.1)">
+                            <i class="fa-solid fa-minus"></i>
+                            <span data-i18n="Acces.Botones.Reducir"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Visual"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('modo-contraste')">
+                        <i class="fa-solid fa-circle-half-stroke"></i>
+                        <span data-i18n="Acces.Botones.Contraste"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('resaltar-enlaces')">
+                        <i class="fa-solid fa-link"></i>
+                        <span data-i18n="Acces.Botones.Enlaces"></span>
+                    </button>
+                </div>
+
+
+                <div class="MenuGrupoAcces">
+                    <small data-i18n="Acces.Texto.Lectura"></small>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('fuente-legible')">
+                        <i class="fa-solid fa-font"></i>
+                        <span data-i18n="Acces.Botones.Fuente"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('cursor-grande')">
+                        <i class="fa-solid fa-arrow-pointer"></i>
+                        <span data-i18n="Acces.Botones.Cursor"></span>
+                    </button>
+
+                    <button class="MenuAccesOpcion" onclick="alternarClase('sin-animaciones')">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <span data-i18n="Acces.Botones.Animaciones"></span>
+                    </button>
+                </div>
+
+                <hr>
+
+                <button class="MenuAccesOpcion BotonReiniciar" onclick="restablecerTodo()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span data-i18n="Acces.Botones.Reset"></span>
+                </button>
+
+            </div>
+        </div>
+
+        <!--====== BOTÓN IR ARRIBA ======-->
+        <button id="BotonArriba" class="BotonArriba fa-solid fa-circle-arrow-up" aria-label="Volver arriba"></button>
+
+        <!--===== BANNER 1 ======-->
+        <section class="Banner1" aria-hidden="true"></section>
+
+        <!-- PREGUNTAS FRECUENTES -->
+        <section class="ScContenedor" aria-labelledby="titulo-faq">
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h1 id="titulo-faq" data-i18n="ContactoPage.FAQ.Titulo"></h1>
+                </div>
+
+                <div class="FAQ">
+                    <div class="Acordeon">
+
+                        <!-- 1 -->
+                        <div class="Item">
+                            <button class="Pregunta" aria-expanded="false" aria-controls="faq-resp-1"
+                                data-i18n="ContactoPage.FAQ.Q1"></button>
+
+                            <div class="Respuesta" id="faq-resp-1" role="region">
+                                <p data-i18n="ContactoPage.FAQ.R1"></p>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="Item">
+                            <button class="Pregunta" aria-expanded="false" aria-controls="faq-resp-2"
+                                data-i18n="ContactoPage.FAQ.Q2"></button>
+
+                            <div class="Respuesta" id="faq-resp-2" role="region">
+                                <p data-i18n="ContactoPage.FAQ.R2"></p>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="Item">
+                            <button class="Pregunta" aria-expanded="false" aria-controls="faq-resp-3"
+                                data-i18n="ContactoPage.FAQ.Q3"></button>
+
+                            <div class="Respuesta" id="faq-resp-3" role="region">
+                                <p data-i18n="ContactoPage.FAQ.R3"></p>
+                            </div>
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="Item">
+                            <button class="Pregunta" aria-expanded="false" aria-controls="faq-resp-4"
+                                data-i18n="ContactoPage.FAQ.Q4"></button>
+
+                            <div class="Respuesta" id="faq-resp-4" role="region">
+                                <p data-i18n="ContactoPage.FAQ.R4"></p>
+                            </div>
+                        </div>
+
+                        <!-- 5 -->
+                        <div class="Item">
+                            <button class="Pregunta" aria-expanded="false" aria-controls="faq-resp-5"
+                                data-i18n="ContactoPage.FAQ.Q5"></button>
+
+                            <div class="Respuesta" id="faq-resp-5" role="region">
+                                <p data-i18n="ContactoPage.FAQ.R5"></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== CONTACTO  ======-->
+        <section id="Contacto" class="ScContenedor" style="background-color: #f4f4f4;"
+            aria-labelledby="titulo-contacto">
+
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h2 id="titulo-contacto" data-i18n="ContactoPage.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="ContactoPage.Descripcion"></p>
+                </div>
+
+                <div class="Contenedor" style="padding: 15px 0px 0px 0px;">
+                    <div class="FilaContacto">
+
+                        <!-- INFO -->
+                        <div class="ColContacto">
+                            <div class="InfoContacto">
+
+                                <a href="mailto:info@visitsuiza.com" data-i18n="ContactoPage.Info.Email"
+                                    data-i18n-aria-label="ContactoPage.Info.EmailAria"></a>
+
+                                <a href="tel:+41000000000" data-i18n="ContactoPage.Info.Telefono"
+                                    data-i18n-aria-label="ContactoPage.Info.TelefonoAria"></a>
+
+                                <span data-i18n="ContactoPage.Info.Horario"></span>
+
+                                <span style="border:1.5px solid black; border-radius: 10%; margin: 5% 0;"
+                                    aria-hidden="true"></span>
+
+                                <div class="RedesContacto">
+                                    <a href="https://facebook.com" data-i18n-aria-label="ContactoPage.Redes.Facebook">
+                                        <i class="fa-brands fa-facebook"></i>
+                                    </a>
+                                    <a href="https://instagram.com" data-i18n-aria-label="ContactoPage.Redes.Instagram">
+                                        <i class="fa-brands fa-square-instagram"></i>
+                                    </a>
+                                    <a href="https://youtube.com" data-i18n-aria-label="ContactoPage.Redes.Youtube">
+                                        <i class="fa-brands fa-youtube"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- FORM -->
+                        <div class="ColContacto w75c SeparadorVertical">
+                            <div class="ConFormularioContacto">
+
+                                <form id="FormularioContacto">
+
+                                    <div class="Campo">
+                                        <label for="nombre_contacto">
+                                            <span data-i18n="ContactoPage.Form.Nombre"></span>
+                                            <span class="required" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="text" id="nombre_contacto"
+                                            data-i18n-placeholder="ContactoPage.Form.NombrePH" required>
+                                    </div>
+
+                                    <div class="Campo">
+                                        <label for="apellido_contacto">
+                                            <span data-i18n="ContactoPage.Form.Apellido"></span>
+                                            <span class="required" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="text" id="apellido_contacto"
+                                            data-i18n-placeholder="ContactoPage.Form.ApellidoPH" required>
+                                    </div>
+
+                                    <div class="Campo">
+                                        <label for="correo_contacto">
+                                            <span data-i18n="ContactoPage.Form.Correo"></span>
+                                            <span class="required" aria-hidden="true">*</span>
+                                        </label>
+                                        <input type="email" id="correo_contacto"
+                                            data-i18n-placeholder="ContactoPage.Form.CorreoPH" required>
+                                    </div>
+
+                                    <fieldset>
+                                        <legend data-i18n="ContactoPage.Form.Tipo"></legend>
+
+                                        <div class="OpcionesRadio">
+
+                                            <label>
+                                                <input type="checkbox">
+                                                <span data-i18n="ContactoPage.Form.Opciones.Soporte"></span>
+                                            </label>
+
+                                            <label>
+                                                <input type="checkbox">
+                                                <span data-i18n="ContactoPage.Form.Opciones.Info"></span>
+                                            </label>
+
+                                            <label>
+                                                <input type="checkbox">
+                                                <span data-i18n="ContactoPage.Form.Opciones.Plan"></span>
+                                            </label>
+
+                                            <label>
+                                                <input type="checkbox">
+                                                <span data-i18n="ContactoPage.Form.Opciones.Alianzas"></span>
+                                            </label>
+
+                                            <label>
+                                                <input type="checkbox">
+                                                <span data-i18n="ContactoPage.Form.Opciones.Eventos"></span>
+                                            </label>
+
+                                        </div>
+                                    </fieldset>
+
+                                    <div class="Campo">
+                                        <label for="mensaje_contacto" data-i18n="ContactoPage.Form.Mensaje"></label>
+
+                                        <textarea id="mensaje_contacto" rows="5"
+                                            data-i18n-placeholder="ContactoPage.Form.MensajePH" required></textarea>
+                                    </div>
+
+                                    <button type="submit" class="BotonEnviar"
+                                        data-i18n="ContactoPage.Form.Boton"></button>
+
+                                </form>
+
+                                <!-- MODAL -->
+                                <div class="ModalContacto" id="ModalContacto" role="dialog" aria-modal="true"
+                                    aria-labelledby="modal-contacto-titulo">
+
+                                    <div class="ModalContactoBox">
+
+                                        <button class="CerrarModalContacto" id="CerrarModalContacto"
+                                            data-i18n-aria-label="ContactoPage.Modal.Cerrar">&times;</button>
+
+                                        <h3 id="modal-contacto-titulo" data-i18n="ContactoPage.Modal.Titulo"></h3>
+
+                                        <i class="fa-solid fa-circle-check IconoOk"></i>
+
+                                        <p data-i18n="ContactoPage.Modal.Desc"></p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== ATENCIÓN PERSONALIZADA  ======-->
+        <section id="Atencion" class="ScContenedor" aria-labelledby="titulo-atencion">
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h2 id="titulo-atencion" data-i18n="ContactoPage.Atencion.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="ContactoPage.Atencion.Descripcion"></p>
+                </div>
+
+                <div class="Contenedor">
+                    <div class="FilaTarjetas">
+
+                        <button class="BotonPrincipal BotonGrande" type="button" data-i18n="ContactoPage.Atencion.Chat"
+                            data-i18n-aria-label="ContactoPage.Atencion.ChatAria" onclick="descargarArchivo()">
+                        </button>
+
+                        <a href="https://wa.me/573001234567" target="_blank" rel="noopener"
+                            class="BotonPrincipal BotonGrande" data-i18n="ContactoPage.Atencion.Whatsapp"
+                            data-i18n-aria-label="ContactoPage.Atencion.WhatsappAria">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--====== DESCARGA  ======-->
+        <section id="Descarga" class="ScContenedor" aria-labelledby="titulo-descarga">
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h2 id="titulo-descarga" data-i18n="ContactoPage.Descarga.Titulo"></h2>
+                </div>
+
+                <div class="Contenedor">
+                    <div class="FilaTarjetas">
+
+                        <a href="docs/guia-suiza.pdf" download class="BotonPrincipal BotonGrande"
+                            data-i18n="ContactoPage.Descarga.Guia"
+                            data-i18n-aria-label="ContactoPage.Descarga.GuiaAria">
+                        </a>
+
+                        <a href="docs/mapa-suiza.pdf" download class="BotonPrincipal BotonGrande"
+                            data-i18n="ContactoPage.Descarga.Mapa"
+                            data-i18n-aria-label="ContactoPage.Descarga.MapaAria">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--====== MAPA ======-->
+        <section id="Mapa" class="ScContenedor" style="background-color: #f4f4f4;" aria-labelledby="titulo-mapa">
+
+            <div class="Contenedor">
+
+                <div class="Titulo">
+                    <h2 id="titulo-mapa" data-i18n="ContactoPage.Mapa.Titulo"></h2>
+                </div>
+
+                <div class="Descripcion">
+                    <p data-i18n="ContactoPage.Mapa.Descripcion"></p>
+                </div>
+
+                <div class="MapaResponsive">
+                    <iframe id="MapaIframe" data-i18n-title="ContactoPage.Mapa.Aria"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398238.9288952476!2d6.902303823682438!3d46.80557824825584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2sSuiza!5e0!3m2!1ses!2sco!4v1772377173050!5m2!1ses!2sco"
+                        allowfullscreen loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer>
+        <div id="FooterSz" class="Footer">
+
+            <!-- LOGO -->
+            <div class="FooterCol FooterLogo">
+                <img src="img/LogoFooter.png" alt="Logo de Visit Suiza" data-i18n-alt="Footer.Logo">
+            </div>
+
+            <!-- NAVEGACIÓN -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Sitio.Titulo"></h3>
+
+                <a href="Index.html#LugaresReconocidos" data-i18n="Footer.Sitio.Lugares"></a>
+                <a href="Index.html#ActividadesPorRealizar" data-i18n="Footer.Sitio.Actividades"></a>
+                <a href="Index.html#PlanificaViaje" data-i18n="Footer.Sitio.Planifica"></a>
+                <a href="Index.html#Eventos" data-i18n="Footer.Sitio.Eventos"></a>
+                <a href="Index.html#Mapa" data-i18n="Footer.Sitio.Mapa"></a>
+            </div>
+
+            <!-- CONTACTO -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Contacto.Titulo"></h3>
+
+                <a href="mailto:info@visitsuiza.com" data-i18n="Footer.Contacto.Email"
+                    data-i18n-aria-label="Footer.Contacto.EmailAria"></a>
+
+                <a href="tel:+41000000000" data-i18n="Footer.Contacto.Telefono"
+                    data-i18n-aria-label="Footer.Contacto.TelefonoAria"></a>
+
+                <p class="FooterHorario" data-i18n="Footer.Contacto.Horario"></p>
+
+                <div class="RedesFooter">
+
+                    <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- LEGAL -->
+            <div class="FooterCol">
+                <h3 data-i18n="Footer.Info.Titulo"></h3>
+
+                <!-- Evitamos enlaces rotos -->
+                <a href="#FooterSz" data-i18n="Footer.Info.Terminos"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Cookies"></a>
+                <a href="#FooterSz" data-i18n="Footer.Info.Accesibilidad"></a>
+            </div>
+
+        </div>
+
+        <!-- COPY -->
+        <div class="FooterCopy" data-i18n="Footer.Copy"></div>
+    </footer>
+
+    <!-- POPUP MAPA -->
+    <div id="ModalMapa" class="ModalMapa" role="dialog" aria-modal="true" aria-label="Mapa interactivo de Suiza">
+        <div class="ModalContenido">
+
+            <button id="CerrarMapa" aria-label="Cerrar mapa">&times;</button>
+
+            <iframe id="MapaModal" title="Mapa de Suiza"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1398238.9288952476!2d6.902303823682438!3d46.80557824825584!2m3!1f0!2f0!3f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c64ef6f596d61%3A0x5c56b5110fcb7b15!2sSuiza!5e0!3m2!1ses!2sco!4v1772377173050!5m2!1ses!2sco"
+                width="100%" height="500" style="border:0; border-radius:20px;" allowfullscreen loading="lazy">
+            </iframe>
+
+        </div>
+    </div>
+
+    <script src="js/Global.js"></script>
+    <script src="js/Contacto.js"></script>
+    <script src="js/PanelAccesibilidad.js"></script>
+    <script src="js/IrArriba.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/Traducciones.js"></script>
+
+</body>
+
+</html>
