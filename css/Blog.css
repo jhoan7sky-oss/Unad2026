@@ -1,0 +1,229 @@
+/* BANNER 1 */
+.Banner1 {
+    height: 80vh;
+    width: 100%;
+    background-image: url("../img/BannerBlog.jpg");
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* NOTICIAS */
+/* ====== NOTICIA PRINCIPAL 75% ====== */
+
+.NoticiaPrincipal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.ImagenPrincipal {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.ImagenPrincipal img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.ContenidoPrincipal h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.ContenidoPrincipal p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+/* ====== RELACIONADOS 25% ====== */
+
+.Relacionado {
+    padding-left: 25px;
+}
+
+.TituloRelacionado {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.TarjetaRelacionado {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.TarjetaRelacionado img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.InfoRelacionado h4 {
+    font-size: 15px;
+    margin: 0 0 5px 0;
+}
+
+.InfoRelacionado p {
+    font-size: 13px;
+    margin: 0 0 6px 0;
+    color: #666;
+}
+
+.InfoRelacionado a {
+    font-size: 13px;
+    color: #da291c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.InfoRelacionado a:hover {
+    text-decoration: underline;
+}
+
+
+/* FAQ */
+.FAQ {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.Acordeon {
+    width: 100%;
+}
+
+.Item {
+    border-bottom: 1px solid #ddd;
+}
+
+.Pregunta {
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+    background: #f9f9f9;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.Icono {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.Pregunta.activa .Icono {
+    transform: rotate(180deg);
+}
+
+.Respuesta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.Respuesta p {
+    padding: 30px;
+    margin: 0;
+}
+
+.TituloPregunta {
+    font-size: 18px;
+    margin: 10px 0px;
+}
+
+.OpcionesRadio {
+    margin: 10px 0;
+}
+
+/* CONTACTO */
+.InfoContacto {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin-bottom: 25px;
+}
+
+.InfoContacto a {
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.InfoContacto a:hover {
+    color: #da291c;
+    font-weight: bold;
+}
+
+.RedesContacto {
+    margin: 20px 25px;
+    display: flex;
+    gap: 18px;
+}
+
+.RedesContacto i {
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RedesContacto i:hover {
+    scale: calc(1.5);
+    color: #da291c;
+    font-weight: bold;
+}
+
+
+/* BOTONES */
+.BotonGrande {
+    transform: scale(1.5);
+    margin: 10px 6%;
+}
+
+.BotonGrande:hover {
+    transform: scale(1.7);
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+
+/* MODAL */
+
+.ModalNoticiaExp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.CerrarModal {
+    color: white;
+}
+

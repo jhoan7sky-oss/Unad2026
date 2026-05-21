@@ -1,0 +1,2185 @@
+/* ====== ESTILOS GENERALES ====== */
+
+body {
+    background-color: #fff;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.938rem, 1.33vw, 1rem);
+}
+
+h1,
+h2,
+h3,
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.Contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ScContenedor {
+    text-align: left;
+    padding: 50px 5%;
+}
+
+section {
+    overflow-x: hidden;
+}
+
+/* ====== TIPOGRAFÍA / TÍTULOS Y DESCRIPCIONES DE SECCIÓN ====== */
+.Subtitulo {
+    font-size: clamp(1.063rem, 1.5vw, 1.25rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #d60000;
+    margin-bottom: 10px;
+}
+
+.Subtitulo span {
+    display: flex;
+    align-items: left;
+    gap: 8px;
+}
+
+.Subtitulo img {
+    width: 15px;
+    height: 15px;
+}
+
+.Titulo h1 {
+    font-size: clamp(2.25rem, 4.0vw, 3rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+.Titulo h2 {
+    font-size: clamp(2.25rem, 4.0vw, 3rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+.DescripcionS {
+    font-size: clamp(1.063rem, 1.67vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.Descripcion {
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+}
+
+.Descripcion p {
+    max-width: 1800px;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* ====== ÍCONO CRUZ SUIZA ====== */
+.CruzSuiza {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #DA291C;
+    border-radius: 50%;
+}
+
+.CruzSuiza::before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 60%;
+    height: 20%;
+    background-color: #fff;
+}
+
+.CruzSuiza::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 20%;
+    height: 60%;
+    background-color: #fff;
+}
+
+/* ===== SKIP LINK ===== */
+.SkipLink {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: #DA291C;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+    font-weight: 600;
+    text-decoration: none;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+
+    transition: top 0.3s ease;
+}
+
+.SkipLink i {
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+}
+
+.SkipLink:focus {
+    top: 15px;
+}
+
+/* ====== HEADER Y BARRA DE NAVEGACIÓN ====== */
+header {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.BarraNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    height: 50px;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.Logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.TextoLogo {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    color: #da291c;
+    text-transform: uppercase;
+    font-size: clamp(1.375rem, 2.0vw, 1.875rem);
+    letter-spacing: 1px;
+}
+
+.EnlacesNav {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.EnlacesNav li {
+    display: flex;
+    align-items: center;
+}
+
+.EnlacesNav li a {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    text-decoration: none;
+    color: #333;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    transition: 0.3s;
+}
+
+.EnlacesNav li a:hover {
+    color: #DA291C;
+    font-weight: bold;
+}
+
+.ActivoMenu {
+    color: #DA291C;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.ActivoMenu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 5px;
+    border-radius: 25px;
+    background: #DA291C;
+}
+
+.BotonGral {
+    background-color: white;
+    border: none;
+}
+
+.BotonIcono {
+    background-color: white;
+    border: 1.5px solid #DA291C;
+    color: #DA291C !important;
+    padding: 6px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    text-decoration: none;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    font-weight: lighter;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.BotonIcono i,
+.BotonIcono span {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.BotonIcono:hover {
+    background-color: #DA291C;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.BotonIcono:hover i,
+.BotonIcono:hover span {
+    color: #fff !important;
+}
+
+.BotonMenu {
+    display: none;
+    background-color: white;
+    border: none;
+    font-size: clamp(1.375rem, 2.0vw, 1.75rem);
+    cursor: pointer;
+}
+
+/* ====== BOTÓN ACCESIBILIDAD ====== */
+.BotonAccessibilidad {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    background-color: #0056b3;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    font-size: clamp(1.25rem, 2.0vw, 1.5rem);
+    cursor: pointer;
+    z-index: 3000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.BotonAccessibilidad:hover {
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+    background-color: #003b79;
+    color: #fff;
+}
+
+.PanelMenuAccesibilidad {
+    position: fixed;
+    bottom: 170px;
+    right: 25px;
+    width: 290px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: none;
+    z-index: 3000;
+    border: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+}
+
+.PanelMenuAccesibilidad.activo {
+    display: block;
+}
+
+.MenuAccesEncabezado {
+    background: #f8f9fa;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+#cerrarAcc {
+    background: none;
+    border: none;
+    font-size: clamp(1.25rem, 2.0vw, 1.5rem);
+    cursor: pointer;
+}
+
+.MenuAccesCuerpo {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.MenuGrupoAcces {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.MenuGrupoAcces small {
+    color: #888;
+    font-size: clamp(0.625rem, 0.92vw, 0.688rem);
+    text-transform: uppercase;
+}
+
+.MenuAccesFilaBotones {
+    display: flex;
+    gap: 8px;
+}
+
+.MenuAccesOpcion {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+}
+
+.MenuAccesOpcion:hover {
+    background: #f0f7ff;
+    border-color: #0056b3;
+}
+
+.BotonReiniciar {
+    color: #da291c !important;
+    border-color: #da291c !important;
+    font-weight: bold;
+    justify-content: center;
+}
+
+/* --- MODIFICADORES ACCESIBILIDAD --- */
+body.modo-contraste {
+    background-color: #000 !important;
+    color: #ffff00 !important;
+}
+
+body.modo-contraste *:not(.MenuAccesOpcion, .PanelMenuAccesibilidad, .MenuAccesEncabezado, #btnAccesibilidad, i) {
+    background-color: #000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+}
+
+body.resaltar-enlaces a,
+body.resaltar-enlaces button:not(.MenuAccesOpcion, #btnAccesibilidad, #cerrarAcc) {
+    background-color: yellow !important;
+    color: black !important;
+    outline: 4px solid #da291c !important;
+    text-decoration: underline !important;
+    font-weight: 900 !important;
+}
+
+body.fuente-legible {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif !important;
+}
+
+body.cursor-grande,
+body.cursor-grande * {
+    cursor: crosshair !important;
+}
+
+body.sin-animaciones *,
+body.sin-animaciones *::before,
+body.sin-animaciones *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+}
+
+/* ====== BOTÓN IR ARRIBA ====== */
+.BotonArriba {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    background-color: #DA291C;
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    font-size: clamp(1.25rem, 2.0vw, 1.5rem);
+    border: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.BotonArriba.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+.BotonArriba:hover {
+    transform: scale(1.3);
+    transition: transform 0.3s ease;
+    background-color: #7a120a;
+}
+
+/* ====== BOTONES GENERALES ====== */
+.BotonPrincipal {
+    border-radius: 25px;
+    border-style: none;
+    background: #DA291C;
+    color: #fff;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem); 
+    transition: 0.3s;
+}
+
+.BotonPrincipal:hover {
+    background: #b71f16;
+    transform: scale(1.1);
+}
+
+.BotonSecundario {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.BotonSecundario:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+.BotonSecundario:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.BotonSecundario:active {
+    transform: scale(0.98);
+}
+
+.BotonEnviar {
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    background: #DA291C;
+    color: #fff;
+    font-size: clamp(0.938rem, 1.33vw, 1rem);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.BotonEnviar:hover {
+    background: #b71f14;
+}
+
+/* ====== SLIDER PRINCIPAL (BIENVENIDA) ====== */
+.Slider {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.SombraArriba {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 5;
+}
+
+.SombraAbajo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 5;
+}
+
+.Slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.Slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.Slide.Activa {
+    opacity: 1;
+    z-index: 1;
+}
+
+.Slide video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.ContenidoSlide {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.Slide.Activa .ContenidoSlide {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ContenidoSlide h1 {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 99px;
+    padding: 6px 32px;
+    font-size: clamp(2.25rem, 4.0vw, 3rem);
+    line-height: 1.55;
+    margin-bottom: 15px;
+}
+
+.ContenidoSlide p {
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    margin-bottom: 25px;
+}
+
+.ContenidoSlide .DescripcionS {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 99px;
+    padding: 4px 24px;
+    font-size: clamp(1.063rem, 1.67vw, 1.25rem);
+    line-height: 1.55;
+    margin-bottom: 25px;
+}
+
+.BotonesSlide {
+    display: flex;
+    gap: 15px;
+}
+
+/* Flechas del slider */
+.BotonSlider {
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #fff;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    padding: 12px 16px;
+    cursor: pointer;
+    z-index: 20;
+    transition: 0.3s;
+}
+
+.BotonSlider:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.Anterior {
+    left: 25px;
+}
+
+.Siguiente {
+    right: 25px;
+}
+
+/* Indicadores (puntos) */
+.Indicadores {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+.Punto {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Punto.Activo {
+    background: #DA291C;
+    border-color: #DA291C;
+}
+
+.BotonPausa {
+    top: auto;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.BotonPausa:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ====== SLIDER LOGOS ====== */
+.SliderLogos {
+    overflow: hidden;
+    width: 100%;
+    margin: 60px auto;
+}
+
+.ViewportLogos {
+    overflow: hidden;
+    width: 100%;
+}
+
+.TrackLogos {
+    display: flex;
+    width: fit-content;
+    animation: scrollLogos 25s linear infinite;
+}
+
+.SlideLogo {
+    flex: 0 0 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.SlideLogo img {
+    max-width: 150px;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+/* ====== SLIDER INSTAGRAM (IG) ====== */
+.SliderIG {
+    position: relative;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.ViewportIG {
+    overflow: hidden;
+    width: 100%;
+}
+
+.TrackIG {
+    display: flex;
+    transition: transform 0.8s ease;
+}
+
+.SlideIG {
+    flex: 0 0 25%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.SlideIG img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.4s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.SlideIG img:hover {
+    transform: scale(1.05);
+}
+
+.PrevIG,
+.NextIG {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.PrevIG {
+    left: -15px;
+}
+
+.NextIG {
+    right: -15px;
+}
+
+.DotsIG {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.DotIG {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.DotIG.Activo {
+    background: #000;
+    transform: scale(1.2);
+}
+
+
+/* ====== SLIDER DE NOTICIAS ====== */
+.SliderNoticias {
+    position: relative;
+    margin-top: 60px;
+}
+
+.ViewportNoticias {
+    overflow: hidden;
+    width: 100%;
+}
+
+.TrackNoticias {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.SlideNoticia {
+    flex: 0 0 25%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.BotonSliderNoticias {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #DA291C;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.PrevNoticias {
+    left: -40px;
+}
+
+.NextNoticias {
+    right: -40px;
+}
+
+.BotonSliderNoticias:hover {
+    background: #b71f16;
+}
+
+.DotsNoticias {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.DotNoticia {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.DotNoticia.Activo {
+    background: #DA291C;
+    transform: scale(1.2);
+}
+
+#SliderNoticiasTurismo .TarjetaActividad {
+    height: 520px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ====== TARJETAS X2 ====== */
+.FilaTarjetas {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.Tarjeta {
+    flex: 1 1 calc(50% - 20px);
+    max-width: 1800px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+}
+
+.ImagenTarjeta {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.ImagenTarjeta img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.ImagenTarjeta:hover img {
+    transform: scale(1.1);
+}
+
+.OverlayTarjeta {
+    position: relative;
+    width: 100%;
+    padding: 25px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    z-index: 2;
+}
+
+.TituloTarjeta {
+    font-size: clamp(1.25rem, 2.0vw, 1.875rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.DescTarjeta {
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    line-height: 1.6;
+    margin: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.BotonTarjeta {
+    width: fit-content;
+    font-size: clamp(0.813rem, 1.17vw, 0.938rem);
+}
+
+
+/* ====== TARJETAS X3 ====== */
+.FilaTarjetasX3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.TarjetaX3 {
+    flex: 0 1 calc((100% - 60px) / 3);
+    display: flex;
+}
+
+.ImagenTarjetaX3 {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.TarjetaX3:hover .ImagenTarjetaX3 {
+    transform: translateY(-6px);
+}
+
+.ImagenTarjetaX3 img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.BotonTarjetaX3 {
+    position: absolute;
+    inset: 0;
+    background: rgba(214, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 3;
+}
+
+.TarjetaX3:hover .BotonTarjetaX3 {
+    opacity: 1;
+}
+
+.BotonTarjetaX3 a {
+    background: #ffffff;
+    color: #DA291C;
+    padding: 12px 26px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+    transition: all 0.3s ease;
+}
+
+.BotonTarjetaX3 a:hover {
+    background: #7a120a;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.OverlayTarjetaX3 {
+    position: relative;
+    z-index: 2;
+    padding: 25px;
+    color: #ffffff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.UbicacionTarjetaX3 {
+    font-size: clamp(0.688rem, 1.0vw, 0.875rem);
+    margin-bottom: 6px;
+    display: block;
+}
+
+.TituloTarjetaX3 {
+    font-size: clamp(1.063rem, 1.67vw, 1.375rem);
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.DescTarjetaX3 {
+    font-size: clamp(0.813rem, 1.17vw, 1rem);
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+
+/* ====== TABS ====== */
+.Tabs {
+    text-align: center;
+}
+
+.TabsBotones button {
+    padding: 15px 20px;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    border-radius: 25px 25px 0px 0px;
+    margin-top: 15px;
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+}
+
+.TabsBotones button.TabActiva {
+    background: #DA291C;
+    color: #fff;
+}
+
+.ContenidoTab {
+    display: none;
+    padding: 20px;
+}
+
+.ContenidoTab.Activo {
+    display: block;
+}
+
+.GridActividades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.TarjetaActividad {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    padding-bottom: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s forwards;
+}
+
+.TarjetaActividad img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.TarjetaActividad:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.30);
+}
+
+.TarjetaContenido {
+    padding: 20px;
+}
+
+.TarjetaContenido h3 {
+    font-size: clamp(1.063rem, 1.5vw, 1.375rem);
+    margin: 0 0 10px 0;
+}
+
+.TarjetaContenido p {
+    font-size: clamp(0.813rem, 1.17vw, 1rem);
+    line-height: 1.5;
+}
+
+
+/* ====== TARJETAS CON ICONOS ====== */
+.GridIconosTarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.TarjetaIcono {
+    background: #fff;
+    padding: 40px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s forwards;
+}
+
+.TarjetaIcono:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.Icono {
+    font-size: clamp(1.75rem, 2.67vw, 2.5rem);
+    color: #da291c;
+    margin-bottom: 20px;
+}
+
+.TarjetaIcono h3 {
+    font-size: clamp(1.063rem, 1.5vw, 1.375rem);
+    margin-bottom: 10px;
+}
+
+.TarjetaIcono p {
+    font-size: clamp(0.813rem, 1.17vw, 1rem);
+    line-height: 1.6;
+    color: #555;
+}
+
+
+/* ====== TARJETAS DE OPINIONES ====== */
+.SeccionOpiniones {
+    margin-top: 60px;
+}
+
+.FilaOpiniones {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.TarjetaOpinion {
+    flex: 0 1 calc((100% - 90px) / 4);
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.TarjetaOpinion:hover {
+    transform: translateY(-6px);
+}
+
+.TarjetaOpinion h3 {
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    margin-bottom: 10px;
+}
+
+.TarjetaOpinion p {
+    font-size: clamp(0.813rem, 1.17vw, 0.875rem);
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.TarjetaOpinion::before {
+    content: "★★★★";
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    display: block;
+    color: #ddd;
+}
+
+.estrellas-1::before {
+    color: #f5b301;
+    content: "★★★★";
+}
+
+.estrellas-2::before {
+    color: #f5b301;
+    content: "★★★★";
+}
+
+.estrellas-3::before {
+    color: #f5b301;
+    content: "★★★☆";
+}
+
+.estrellas-4::before {
+    color: #f5b301;
+    content: "★★★★";
+}
+
+/* Autor */
+.AutorOpinion {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.AutorOpinion img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.NombreAutor {
+    display: block;
+    font-weight: 600;
+    font-size: clamp(0.75rem, 1.08vw, 0.813rem);
+}
+
+.FechaOpinion {
+    font-size: clamp(0.688rem, 1.0vw, 0.75rem);
+    color: #555;
+}
+
+/* ====== FORMULARIO ====== */
+.Formulario,
+.Formulario * {
+    box-sizing: border-box;
+}
+
+.Formulario {
+    background-color: #fff;
+    border-radius: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.GrupoCampos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.Campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: clamp(0.938rem, 1.33vw, 1.125rem);
+}
+
+.Campo label {
+    margin-bottom: 6px;
+}
+
+.Campo input,
+.Campo textarea {
+    font-family: Montserrat;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: clamp(0.875rem, 1.25vw, 1rem);
+}
+
+.Campo textarea {
+    resize: none;
+}
+
+.Campo input[type="text"]:focus,
+.Campo input[type="email"]:focus,
+.Campo textarea:focus {
+    border: 2px solid transparent;
+    border-color: #da291c;
+    outline: none;
+}
+
+input[type="date"],
+select {
+    font-family: Montserrat;
+    background-color: #fafafa;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: clamp(0.875rem, 1.25vw, 1rem);
+}
+
+.Formulario input[type="date"] {
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.Formulario input[type="date"]:focus {
+    border-color: #da291c;
+    outline: none;
+}
+
+.select:focus {
+    border-color: #da291c;
+    outline: none;
+}
+
+input[type="checkbox"] {
+    accent-color: #DA291C;
+}
+
+.ContenedorInput {
+    position: relative;
+}
+
+.ContenedorInput input {
+    padding-right: 40px;
+}
+
+.ContenedorInput i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.OpcionesRadio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+
+/* ===== FILA CONTACTO ===== */
+.FilaContacto {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.ColContacto {
+    display: flex;
+}
+
+.w25c {
+    width: 30%;
+}
+
+.w75c {
+    width: 70%;
+}
+
+.ImagenContacto {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.ImagenContacto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.ConFormularioContacto {
+    width: 100%;
+    padding: 40px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* ====== MODALES ====== */
+.ModalMapa {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.ModalMapa.MostrarModalMapa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ModalContenido {
+    background: #fff;
+    width: 70%;
+    max-width: 70%;
+    border-radius: 25px;
+    padding: 25px;
+    position: relative;
+}
+
+#CerrarMapa {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(1.25rem, 2.0vw, 1.75rem);
+    cursor: pointer;
+    color: #333;
+    transition: 0.3s ease;
+}
+
+#CerrarMapa:hover {
+    color: #da291c;
+}
+
+.ModalIdioma {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#ModalBienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#SaludoBienvenida{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#DescIdioma {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 10px;
+}
+
+#ModalBienvenida .ContenidoModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#ModalBienvenida.activo {
+    display: flex;
+}
+
+#BienvenidaConfirmacion {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 1.1rem;
+}
+
+#BienvenidaConfirmacion span {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.IconoOk2 {
+    font-size: 5rem;
+    color: #4caf50;
+}
+
+@keyframes popCheck {
+    0%   { opacity: 0; transform: scale(0) rotate(-20deg); }
+    70%  { opacity: 1; transform: scale(1.3) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.FnIdioma {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.OpcionIdioma {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+}
+
+.OpcionIdioma img {
+    width: 100px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.OpcionIdioma img:hover {
+    transform: scale(1.3);
+}
+
+
+
+.ModalOk {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 999;
+}
+
+.ModalOk.Activo {
+    visibility: visible;
+    opacity: 1;
+}
+
+.IconoOk {
+    font-size: clamp(2.25rem, 3.33vw, 3.75rem);
+    color: #28a745;
+    display: block;
+    animation: rebote 1.2s ease-in-out infinite;
+}
+
+.ModalContacto {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 9999;
+}
+
+.ModalContacto.MostrarModalContacto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ModalContactoBox {
+    background: #ffffff;
+    width: 90%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    animation: aparecerModalContacto 0.3s ease;
+}
+
+.CerrarModalContacto {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: clamp(1.125rem, 1.67vw, 1.375rem);
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+}
+
+.ModalExpand {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.ModalExpand.Activo {
+    visibility: visible;
+    opacity: 1;
+}
+
+.ModalExpand img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+
+.CerrarExpand {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: clamp(1.75rem, 2.67vw, 2.5rem);
+    color: #fff;
+    cursor: pointer;
+}
+
+.ContenidoModal {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 450px;
+    position: relative;
+    animation: aparecer 0.3s ease;
+}
+
+.CerrarModal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: clamp(1.25rem, 2.0vw, 1.5rem);
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+.CerrarModal:hover {
+    color: #da291c;
+}
+
+/* Confirmación de bienvenida */
+.BienvenidaConfirmacion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 1.1rem;
+    animation: fadeIn 0.4s ease;
+}
+
+.CheckBienvenida {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #4caf50;
+    color: #fff;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #7f0909;
+    color: #fff;
+    padding: 25px 0 25px 0;
+}
+
+.Footer {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+}
+
+.FooterCol {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.FooterLogo img {
+    width: 220px;
+    max-width: 100%;
+}
+
+.FooterCol h3 {
+    margin-bottom: 15px;
+    font-size: clamp(0.875rem, 1.25vw, 1rem);
+    font-weight: 600;
+}
+
+.FooterCol a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: clamp(0.75rem, 1.08vw, 0.875rem);
+    transition: 0.3s;
+}
+
+.FooterCol a:hover {
+    opacity: 0.75;
+}
+
+.RedesFooter {
+    margin-top: 12px;
+    display: flex;
+    gap: 18px;
+}
+
+.RedesFooter i {
+    font-size: clamp(1.188rem, 1.67vw, 1.375rem);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RedesFooter i:hover {
+    opacity: 0.7;
+}
+
+.FooterCopy {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 2px solid #fff;
+    font-size: clamp(0.688rem, 1.0vw, 0.813rem);
+    opacity: 0.9;
+}
+
+/* ====== ANIMACIONES ====== */
+
+@keyframes scrollLogos {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rebote {
+    0%, 100% { transform: scale(1); }
+    40%       { transform: scale(1.25); }
+    60%       { transform: scale(0.95); }
+}
+
+@keyframes aparecer {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes aparecerModalContacto {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* MAPA IFRAME */
+.MapaResponsive {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-top: 15px;
+    border-radius: 25px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.MapaResponsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ====== TABLET (max-width: 992px) ====== */
+@media (max-width: 992px) {
+
+    /* Menú hamburguesa */
+    .BotonMenu {
+        display: block;
+    }
+
+    .EnlacesNav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        padding: 20px 0;
+        gap: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .EnlacesNav.active {
+        display: flex;
+    }
+
+    .Logo img {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Botones slide */
+    .BotonesSlide {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .BotonSlider {
+        display: none;
+    }
+
+    /* Tarjetas */
+    .Tarjeta {
+        flex: 0 1 100%;
+    }
+
+    .ImagenTarjeta {
+        height: 450px;
+    }
+
+    .TarjetaX3 {
+        flex: 0 1 calc((100% - 30px) / 2);
+    }
+
+    .ImagenTarjetaX3 {
+        height: 380px;
+    }
+
+    /* Grids */
+    .GridActividades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .GridIconosTarjetas {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* Formulario */
+    .GrupoCampos {
+        grid-template-columns: 1fr;
+    }
+
+    /* Sliders */
+    .SlideIG {
+        flex: 0 0 50%;
+    }
+
+    .SlideLogo {
+        flex: 0 0 150px;
+    }
+
+    .SlideNoticia {
+        flex: 0 0 50%;
+    }
+
+    /* Opiniones */
+    .FilaOpiniones {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .TarjetaOpinion {
+        flex: 0 1 320px;
+    }
+
+    /* Footer */
+    .Footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .FooterLogo img {
+        width: 200px;
+    }
+
+    /* Paddings slide hero */
+    .ContenidoSlide h1 {
+        padding: 5px 24px;
+    }
+
+    .ContenidoSlide .DescripcionS {
+        padding: 4px 20px;
+    }
+}
+
+
+/* ====== MÓVIL GRANDE (max-width: 768px) ====== */
+@media (max-width: 768px) {
+
+    .ScContenedor {
+        padding: 40px 4%;
+    }
+
+    .OcultarResponsive {
+        display: none;
+    }
+
+    .w75c {
+        width: 100%;
+    }
+
+    .ModalContenido {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    /* Tarjetas */
+    .TarjetaX3 {
+        flex: 0 1 100%;
+    }
+
+    .ImagenTarjetaX3 {
+        height: 300px;
+    }
+
+    /* Paddings slide hero */
+    .ContenidoSlide h1 {
+        padding: 5px 20px;
+    }
+
+    .ContenidoSlide .DescripcionS {
+        padding: 4px 16px;
+    }
+
+    /* Contacto */
+    .FilaContacto {
+        display: block;
+        width: 100%;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ColContacto {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .w75c,
+    .w25c {
+        width: 100% !important;
+    }
+}
+
+
+/* ====== MÓVIL (max-width: 576px) ====== */
+@media (max-width: 576px) {
+
+    #LugaresReconocidos {
+        padding: 60px 15px;
+    }
+
+    /* Subtitulo */
+    .Subtitulo {
+        letter-spacing: 1px;
+    }
+
+    /* Botones slide */
+    .BotonesSlide {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .BotonPrincipal,
+    .BotonSecundario {
+        padding: 10px 22px;
+        text-align: center;
+    }
+
+    /* Tarjetas */
+    .Tarjetas-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .ImagenTarjeta {
+        height: 380px;
+    }
+
+    .BotonTarjeta {
+        padding: 7px 16px;
+    }
+
+    .TarjetaX3 {
+        flex: 0 1 100%;
+    }
+
+    .ImagenTarjetaX3 {
+        height: 340px;
+    }
+
+    /* Grids */
+    .GridActividades {
+        grid-template-columns: 1fr;
+    }
+
+    .GridIconosTarjetas {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .TarjetaIcono {
+        padding: 30px 20px;
+    }
+
+    /* Fila */
+    .Fila {
+        flex-direction: column;
+    }
+
+    /* Sliders */
+    .SlideIG {
+        flex: 0 0 100%;
+    }
+
+    .SlideLogo {
+        flex: 0 0 120px;
+    }
+
+    .SlideNoticia {
+        flex: 0 0 100%;
+    }
+
+    /* Opiniones */
+    .TarjetaOpinion {
+        flex: 0 1 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    /* Footer */
+    .Footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .FooterCol {
+        align-items: center;
+    }
+
+    .RedesFooter {
+        justify-content: center;
+    }
+
+    .FooterLogo img {
+        width: 180px;
+    }
+
+    /* Slide hero */
+    .ContenidoSlide h1 {
+        padding: 4px 16px;
+        border-radius: 16px;
+    }
+
+    .ContenidoSlide .DescripcionS {
+        padding: 3px 14px;
+        border-radius: 16px;
+    }
+
+    /* Contacto */
+    .FilaContacto {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ColContacto {
+        width: 100% !important;
+        justify-content: center;
+    }
+
+    .w75c,
+    .w25c {
+        width: 100% !important;
+    }
+}

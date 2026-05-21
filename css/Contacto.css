@@ -1,0 +1,164 @@
+/* BANNER 1 */
+.Banner1 {
+    height: 80vh;
+    width: 100%;
+    background-image: url("../img/BannerContacto.jpg");
+    background-position: center 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* FAQ */
+.FAQ {
+    width: 100%;
+    padding: 60px 0;
+}
+
+.Acordeon {
+    width: 100%;
+}
+
+.Item {
+    border-bottom: 1px solid #ddd;
+}
+
+.Pregunta {
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+    background: #f9f9f9;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.Icono {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.Pregunta.activa .Icono {
+    transform: rotate(180deg);
+}
+
+.Respuesta {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.Respuesta p {
+    padding: 30px;
+    margin: 0;
+}
+
+.TituloPregunta {
+    font-size: 18px;
+    margin: 10px 0px;
+}
+
+.OpcionesRadio {
+    margin: 10px 0;
+}
+
+/* CONTACTO */
+.InfoContacto {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin-bottom: 25px;
+}
+
+.InfoContacto a {
+    color: black;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.InfoContacto a:hover {
+    color: #da291c;
+    font-weight: bold;
+}
+
+.RedesContacto {
+    margin: 20px 25px;
+    display: flex;
+    gap: 18px;
+}
+
+.RedesContacto i {
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.RedesContacto i:hover {
+    scale: calc(1.5);
+    color: #da291c;
+    font-weight: bold;
+}
+
+
+/* BOTONES */
+.BotonGrande {
+    transform: scale(1.2);
+    margin: 10px 6%;
+}
+
+.BotonGrande:hover {
+    transform: scale(1.7);
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.SeparadorVertical {
+    border-left: 2px solid black;
+}
+
+.required {
+    color: #b00020; 
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+/* ====== RESPONSIVE — MENÚ (max-width: 768px) ====== */
+
+@media (max-width: 768px) {
+    .InfoContacto {
+        margin: 0;
+    }
+
+    .RedesContacto {
+        margin: 0px;
+    }
+
+    .SeparadorVertical {
+        border-style: none;
+    }
+}
+
+
+/* ====== RESPONSIVE — MÓVIL (max-width: 576px) ====== */
+
+@media (max-width: 576px) {
+    .InfoContacto {
+        margin: 0px;
+    }
+
+    .RedesContacto {
+        margin: 0px;
+    }
+
+    .SeparadorVertical {
+        border-style: none;
+    }
+}
